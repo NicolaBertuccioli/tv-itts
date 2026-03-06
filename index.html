@@ -1027,80 +1027,79 @@
         }
 
         async function caricaNotizie() {
-            const rssUrl = 'https://www.ittsrimini.edu.it/tipologia-articolo/notizie/feed/';
-            const container = document.getElementById('notizieList');
+    const rssUrl = 'https://www.ittsrimini.edu.it/tipologia-articolo/notizie/feed/';
+    const container = document.getElementById('notizieList');
 
-            const proxies = [
-                `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`,
-                `https://allorigins.win/get?disableCache=true&url=${encodeURIComponent(rssUrl)}`,
-                `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`
-            ];
+    const proxies = [
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`,
+        `https://allorigins.win/get?disableCache=true&url=${encodeURIComponent(rssUrl)}`,
+        `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`
+    ];
 
-            for (let i = 0; i < proxies.length; i++) {
-                try {
-                    const res = await fetch(proxies[i]);
-                    if (!res.ok) continue;
+    for (let i = 0; i < proxies.length; i++) {
+        try {
+            const res = await fetch(proxies[i]);
+            if (!res.ok) continue;
 
-                    let items = [];
+            let items = [];
 
-                    if (i === 0) {
-                        const data = await res.json();
-                        if (!data.items || data.items.length === 0) continue;
-                        items = data.items.map(item => ({
-                            titolo: item.title,
-                            data: new Date(item.pubDate),
-                            link: item.link
-                        }));
-                    } else {
-                        let xmlText = '';
-                        if (i === 1) {
-                            const json = await res.json();
-                            xmlText = json.contents;
-                        } else {
-                            xmlText = await res.text();
-                        }
-                        const parser = new DOMParser();
-                        const xml = parser.parseFromString(xmlText, 'text/xml');
-                        const entries = xml.querySelectorAll('item');
-                        if (!entries.length) continue;
-                        entries.forEach((entry) => {
-                            const titolo = entry.querySelector('title')?.textContent || '';
-                            const dataTxt = entry.querySelector('pubDate')?.textContent || '';
-                            items.push({ titolo, data: new Date(dataTxt), link: entry.querySelector('link')?.textContent || '#' });
-                        });
-                    }
-
-                    items.sort((a, b) => (b.data?.getTime?.() || 0) - (a.data?.getTime?.() || 0));
-                    items = items.slice(0, 3);
-
-                    if (!items.length) continue;
-
-                    const mesi = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
-                    container.innerHTML = items.map(item => {
-                        const d = item.data;
-                        const dataStr = isNaN(d) ? '' : `${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;
-                        const titolo = item.titolo
-                            .replace(/&amp;/g,'&').replace(/&#8211;/g,'–')
-                            .replace(/&#8217;/g,"'").replace(/&#8220;/g,'"').replace(/&#8221;/g,'"');
-                        return `<div class="notizia-item">
-                            <a class="notizia-titolo" href="${item.link}" target="_blank" rel="noopener noreferrer">${titolo}</a>
-                            ${dataStr ? `<div class="notizia-data">📅 ${dataStr}</div>` : ''}
-                        </div>`;
-                    }).join('');
-                    return;
-
-                } catch(e) { continue; }
+            if (i === 0) {
+                const data = await res.json();
+                if (!data.items || data.items.length === 0) continue;
+                items = data.items.map(item => ({
+                    titolo: item.title,
+                    data: new Date(item.pubDate)
+                }));
+            } else {
+                let xmlText = '';
+                if (i === 1) {
+                    const json = await res.json();
+                    xmlText = json.contents;
+                } else {
+                    xmlText = await res.text();
+                }
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(xmlText, 'text/xml');
+                const entries = xml.querySelectorAll('item');
+                if (!entries.length) continue;
+                entries.forEach((entry) => {
+                    const titolo = entry.querySelector('title')?.textContent || '';
+                    const dataTxt = entry.querySelector('pubDate')?.textContent || '';
+                    items.push({ titolo, data: new Date(dataTxt) });
+                });
             }
 
-            container.innerHTML = [
-                { titolo: 'Iniziativa Referendum', data: '05 Mar 2026' },
-                { titolo: 'Il "Belluzzi-da Vinci" vince la prima sfida de "La Campanella" 2026', data: '18 Feb 2026' },
-                { titolo: 'SADOC INFORMA N. 4 – 2026', data: '26 Feb 2026' }
-            ].map(n => `<div class="notizia-item">
-                <div class="notizia-titolo">${n.titolo}</div>
-                <div class="notizia-data">📅 ${n.data}</div>
-            </div>`).join('');
-        }
+            items.sort((a, b) => (b.data?.getTime?.() || 0) - (a.data?.getTime?.() || 0));
+            items = items.slice(0, 3);
+
+            if (!items.length) continue;
+
+            const mesi = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+            container.innerHTML = items.map(item => {
+                const d = item.data;
+                const dataStr = isNaN(d) ? '' : `${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;
+                const titolo = item.titolo
+                    .replace(/&amp;/g,'&').replace(/&#8211;/g,'–')
+                    .replace(/&#8217;/g,"'").replace(/&#8220;/g,'"').replace(/&#8221;/g,'"');
+                return `<div class="notizia-item">
+                    <div class="notizia-titolo">${titolo}</div>
+                    ${dataStr ? `<div class="notizia-data">📅 ${dataStr}</div>` : ''}
+                </div>`;
+            }).join('');
+            return;
+
+        } catch(e) { continue; }
+    }
+
+    container.innerHTML = [
+        { titolo: 'Iniziativa Referendum', data: '05 Mar 2026' },
+        { titolo: 'Il "Belluzzi-da Vinci" vince la prima sfida de "La Campanella" 2026', data: '18 Feb 2026' },
+        { titolo: 'SADOC INFORMA N. 4 – 2026', data: '26 Feb 2026' }
+    ].map(n => `<div class="notizia-item">
+        <div class="notizia-titolo">${n.titolo}</div>
+        <div class="notizia-data">📅 ${n.data}</div>
+    </div>`).join('');
+}
 
         window.addEventListener('DOMContentLoaded', () => {
             aggiornaSaluto();
