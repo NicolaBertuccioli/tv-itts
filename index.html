@@ -92,7 +92,7 @@
         .dashboard.festa-repubblica { background: linear-gradient(135deg, #2a6a2a, #3a8a3a); color: #ffffff; }
 
         /* ============================================
-           TOP BAR
+           TOP BAR E FIRMA
            ============================================ */
         .top-bar {
             display: flex;
@@ -192,6 +192,13 @@
         .qr-code span { font-size: 1.2rem; font-weight: 600; color: #0a2b44; }
         .dashboard[class*="festa-"] .qr-code span { color: #0a2b44; }
 
+        /* Contenitore destra per Saluto + Firma */
+        .top-right-area {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
         .saluto {
             font-size: 1.8rem;
             font-weight: 600;
@@ -203,10 +210,24 @@
             border: 2px solid transparent;
         }
 
+        .firma {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0a2b44;
+            opacity: 0.5;
+            margin-top: 0.4rem;
+            margin-right: 1.2rem;
+            letter-spacing: 1px;
+        }
+
         .dashboard[class*="festa-"] .saluto { 
             background: rgba(255,255,255,0.2); 
             color: inherit;
             border-color: rgba(255,255,255,0.2);
+        }
+
+        .dashboard[class*="festa-"] .firma {
+            color: inherit;
         }
 
         /* ============================================
@@ -440,7 +461,7 @@
         .scuola-image-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* L'immagine riempie esattamente la scatola fissa: NESSUNA BANDA VUOTA! */
+            object-fit: cover; /* L'immagine riempie esattamente la scatola fissa */
             animation: panZoom 6s ease-out forwards;
         }
 
@@ -499,7 +520,10 @@
                 <span>Scansiona</span>
             </div>
         </div>
-        <div class="saluto" id="saluto">Buongiorno</div>
+        <div class="top-right-area">
+            <div class="saluto" id="saluto">Buongiorno</div>
+            <div class="firma">Nicola Bertuccioli 5H</div>
+        </div>
     </div>
 
     <div class="auguri-speciali" id="auguriSpeciali"></div>
@@ -633,9 +657,9 @@
             
             if (mese === 2 && giorno >= 1 && giorno <= 21) return { nome: 'san-valentino', auguri: '❤️ Buon San Valentino! ❤️', classe: 'festa-san-valentino' };
             if (mese === 10 && giorno >= 20 && giorno <= 31) return { nome: 'halloween', auguri: '🎃 Dolcetto o scherzetto? Buon Halloween! 🎃', classe: 'festa-halloween' };
-            if (mese === 4 && giorno >= 1 && giorno <= 8) return { nome: 'donna', auguri: '🌸 Festa della Donna · 8 Marzo 🌸', classe: 'festa-donna' };
-            if (mese === 10 && giorno >= 7 && giorno <= 14) return { nome: 'gaudenzio', auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉', classe: 'festa-gaudenzio' };
-            if (mese === 5 && giorno >= 28 || (mese === 6 && giorno <= 2)) return { nome: 'repubblica', auguri: '🇮🇹 Festa della Repubblica Italiana! 🇮🇹', classe: 'festa-repubblica' };
+            if (mese === 3 && giorno >= 5 && giorno <= 8) return { nome: 'donna', auguri: '🌸 Festa della Donna · 8 Marzo 🌸', classe: 'festa-donna' };
+            if (mese === 10 && giorno >= 11 && giorno <= 14) return { nome: 'gaudenzio', auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉', classe: 'festa-gaudenzio' };
+            if (mese === 5 && giorno >= 30 || (mese === 6 && giorno <= 2)) return { nome: 'repubblica', auguri: '🇮🇹 Festa della Repubblica Italiana! 🇮🇹', classe: 'festa-repubblica' };
             if ((mese === 12 && giorno >= 15) || (mese === 1 && giorno <= 10)) return { nome: 'natale', auguri: '🎄 Buon Natale e Felice Anno Nuovo! 🎄', classe: 'festa-natale' };
             if (mese === 1 && giorno === 27) return { nome: 'memoria', auguri: '🕯️ Giornata della Memoria · Per non dimenticare 🕯️', classe: 'festa-memoria' };
             if (mese === 3 && giorno === 19) return { nome: 'papa', auguri: '👔 Buona Festa del Papà! 👔', classe: 'festa-papa' };
