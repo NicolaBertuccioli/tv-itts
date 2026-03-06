@@ -42,7 +42,8 @@
         body.festa-pasqua { background: #3a2a4a; }
         body.festa-san-valentino { background: #4a2a3a; }
         body.festa-memoria { background: #2a2a2a; }
-        body.festa-donna { background: #3a2a4a; }
+        /* Festa della donna: colori mimosa */
+        body.festa-donna { background: #ffd966; }
         body.festa-papa { background: #2a3a4a; }
         body.festa-nonni { background: #3a4a2a; }
         body.festa-mamma { background: #4a2a2a; }
@@ -54,7 +55,36 @@
         .dashboard.festa-pasqua { background: linear-gradient(135deg, #4a2a6a, #6a3a8a); color: #ffd700; }
         .dashboard.festa-san-valentino { background: linear-gradient(135deg, #6a2a4a, #8a3a6a); color: #ffb6c1; }
         .dashboard.festa-memoria { background: linear-gradient(135deg, #2a2a2a, #4a4a4a); color: #ffffff; }
-        .dashboard.festa-donna { background: linear-gradient(135deg, #4a2a6a, #6a3a8a); color: #ffc0cb; }
+        .dashboard.festa-donna { background: linear-gradient(135deg, #ffe680, #ffd966); color: #000; }
+        
+        /* -------------------------------------------
+           TEMA DONNA: PERSONALIZZAZIONE COLORI MIMOSA
+           ------------------------------------------- */
+        /* Sfondi chiari e testo scuro per leggibilità su giallo */
+        .dashboard.festa-donna .slide-container {
+            background: rgba(255,255,255,0.9);
+            border-color: rgba(0,0,0,0.1);
+        }
+        .dashboard.festa-donna .previsioni-orarie {
+            border-top-color: rgba(0,0,0,0.2);
+        }
+        .dashboard.festa-donna .previsione-card {
+            background: rgba(255,255,255,0.9);
+        }
+        .dashboard.festa-donna, .dashboard.festa-donna * {
+            color: #000 !important;
+        }
+        .dashboard.festa-donna .meteo-dettaglio-card {
+            background: rgba(255,255,255,0.9);
+        }
+
+        /* Colore dei bordi verde mimosa */
+        .dashboard.festa-donna .top-bar { border-bottom-color: #2d8a4e; }
+        .dashboard.festa-donna .indirizzo-image-area { border-color: #2d8a4e; }
+        .dashboard.festa-donna .scuola-image-wrapper { border-color: #2d8a4e; }
+        .dashboard.festa-donna .progress-fill { background: #2d8a4e; }
+        /* ------------------------------------------- */
+
         .dashboard.festa-papa { background: linear-gradient(135deg, #2a4a6a, #3a6a8a); color: #ffdab9; }
         .dashboard.festa-nonni { background: linear-gradient(135deg, #4a6a2a, #6a8a3a); color: #f0e68c; }
         .dashboard.festa-mamma { background: linear-gradient(135deg, #6a2a2a, #8a3a3a); color: #ffb6c1; }
@@ -62,7 +92,7 @@
         .dashboard.festa-repubblica { background: linear-gradient(135deg, #2a6a2a, #3a8a3a); color: #ffffff; }
 
         /* ============================================
-           TOP BAR - LOGO PIÙ GRANDE E NOME IN EVIDENZA
+           TOP BAR
            ============================================ */
         .top-bar {
             display: flex;
@@ -86,15 +116,14 @@
         .logo {
             height: 90px;
             width: auto;
-            background: white; /* SEMPRE BIANCO */
+            background: white; 
             border-radius: 15px;
             padding: 0.3rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* LOGO: rimane bianco anche durante le feste */
         .dashboard[class*="festa-"] .logo {
-            background: white !important; /* FORZATO BIANCO */
+            background: white !important; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
@@ -112,7 +141,7 @@
         }
 
         .dashboard[class*="festa-"] .logo-fallback {
-            color: #0a2b44; /* Mantiene colore originale anche durante feste */
+            color: #0a2b44; 
         }
 
         .school-info {
@@ -140,40 +169,28 @@
 
         .dashboard[class*="festa-"] .school-name,
         .dashboard[class*="festa-"] .school-subtitle {
-            color: inherit; /* Questi sì che cambiano colore con le feste */
+            color: inherit; 
         }
 
         .qr-code {
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            background: white; /* SEMPRE BIANCO */
+            background: white; 
             padding: 0.6rem 1.5rem;
             border-radius: 50px;
             border: 2px solid #c00a1c;
             margin-left: 1rem;
         }
 
-        /* QR CODE: rimane bianco anche durante le feste */
         .dashboard[class*="festa-"] .qr-code { 
-            background: white !important; /* FORZATO BIANCO */
-            border-color: #c00a1c; /* Bordo rosso fisso */
+            background: white !important; 
+            border-color: #c00a1c; 
         }
 
-        .qr-code img { 
-            width: 50px; 
-            height: 50px; 
-        }
-
-        .qr-code span { 
-            font-size: 1.2rem; 
-            font-weight: 600;
-            color: #0a2b44; /* Colore testo fisso */
-        }
-
-        .dashboard[class*="festa-"] .qr-code span { 
-            color: #0a2b44; /* Mantiene colore originale */
-        }
+        .qr-code img { width: 50px; height: 50px; }
+        .qr-code span { font-size: 1.2rem; font-weight: 600; color: #0a2b44; }
+        .dashboard[class*="festa-"] .qr-code span { color: #0a2b44; }
 
         .saluto {
             font-size: 1.8rem;
@@ -193,7 +210,7 @@
         }
 
         /* ============================================
-           AREA METEO (OTTIMIZZATA)
+           AREA METEO 
            ============================================ */
         .meteo-main {
             background: linear-gradient(135deg, #0a2b44 0%, #1a3f5c 100%);
@@ -219,18 +236,8 @@
             margin-bottom: 1rem;
         }
 
-        .ora-grande {
-            font-size: 3.5rem;
-            font-weight: 700;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 3px;
-        }
-
-        .data-grande {
-            font-size: 2rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
+        .ora-grande { font-size: 3.5rem; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 3px; }
+        .data-grande { font-size: 2rem; font-weight: 400; opacity: 0.9; }
 
         .meteo-riassunto {
             display: flex;
@@ -245,13 +252,7 @@
         .temp-grande { font-size: 3.2rem; font-weight: 700; }
         .desc-grande { font-size: 1.4rem; text-transform: capitalize; }
 
-        /* Dettagli (Percepita, Umidità, Pioggia) */
-        .meteo-row-2 {
-            display: flex;
-            justify-content: space-around;
-            padding: 0.3rem 0;
-            margin-bottom: 0.5rem;
-        }
+        .meteo-row-2 { display: flex; justify-content: space-around; padding: 0.3rem 0; margin-bottom: 0.5rem; }
 
         .meteo-dettaglio-card {
             background: rgba(255,255,255,0.08);
@@ -269,14 +270,8 @@
         .dettaglio-label { font-size: 0.8rem; text-transform: uppercase; opacity: 0.7; }
         .dettaglio-valore { font-size: 1.5rem; font-weight: 600; }
 
-        /* Previsioni Orarie */
-        .previsioni-orarie {
-            padding-top: 0.5rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-
+        .previsioni-orarie { padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
         .previsioni-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; opacity: 0.9; }
-
         .previsioni-container { display: flex; justify-content: space-between; gap: 0.6rem; }
 
         .previsione-card {
@@ -296,7 +291,7 @@
         .previsione-pioggia { font-size: 0.8rem; opacity: 0.8; }
 
         /* ============================================
-           CAROSELLO (UNIFICATO)
+           CAROSELLI E STRUTTURA
            ============================================ */
         .section-title {
             font-size: 1.3rem;
@@ -320,12 +315,13 @@
             flex-direction: column;
             justify-content: center;
             min-height: 0;
+            width: 50%;
         }
 
         .slide-container {
             display: flex;
-            gap: 2rem;
-            align-items: center; /* Centratura verticale per testo e immagini */
+            gap: 1.5rem;
+            align-items: center;
             background: #f5f9ff;
             border-radius: 30px;
             padding: 1.3rem;
@@ -334,6 +330,7 @@
             height: 100%;
             max-height: 320px; 
             transition: all 0.5s ease;
+            position: relative;
         }
 
         .dashboard[class*="festa-"] .slide-container { 
@@ -341,12 +338,15 @@
             border-color: rgba(255,255,255,0.3); 
         }
 
+        /* ============================================
+           STILI CAROSELLO SINISTRO (INDIRIZZI)
+           ============================================ */
         .indirizzo-image-area {
-            width: 260px; /* Larghezza regolata per far rendere al meglio il 16:9 */
+            width: 340px; 
             height: auto;
-            aspect-ratio: 600 / 338; /* Proporzione esatta 16:9 */
-            align-self: center; /* Centratura all'interno della slide */
-            background: #000; /* Sfondo scuro di sicurezza */
+            aspect-ratio: 600 / 338;
+            align-self: center;
+            background: transparent;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -359,7 +359,7 @@
         .indirizzo-image-area img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* Riempie sempre in modo perfetto l'area mantenendo le proporzioni */
+            object-fit: cover;
             display: block;
         }
 
@@ -371,75 +371,113 @@
         }
 
         .indirizzo-nome {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
+            line-height: 1.1;
             font-weight: 800;
             color: #0a2b44;
             text-transform: uppercase;
+            margin-bottom: 0.5rem;
         }
 
         .indirizzo-desc {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #2a4c73;
             border-top: 3px solid #c00a1c;
-            padding-top: 1rem;
+            padding-top: 0.8rem;
         }
 
         .dashboard[class*="festa-"] .indirizzo-nome,
         .dashboard[class*="festa-"] .indirizzo-desc { color: inherit; }
         .dashboard[class*="festa-"] .indirizzo-desc { border-top-color: rgba(255,255,255,0.3); }
 
-        /* ADATTAMENTI PER TEMI FESTIVI - RIDUCI DIMENSIONI */
         .dashboard[class*="festa-"] .slide-container {
-            gap: 0.8rem;
-            padding: 0.8rem;
+            gap: 1rem;
+            padding: 1rem;
             max-height: 280px;
         }
 
         .dashboard[class*="festa-"] .indirizzo-image-area {
-            width: 180px;
-            border-width: 1px;
+            width: 280px; 
+            border-width: 2px;
         }
 
         .dashboard[class*="festa-"] .indirizzo-nome {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 0.3rem;
         }
 
         .dashboard[class*="festa-"] .indirizzo-desc {
-            font-size: 0.95rem;
+            font-size: 1rem;
             padding-top: 0.5rem;
             border-top-width: 2px;
         }
 
-        .dashboard[class*="festa-"] .section-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+        /* ============================================
+           STILI CAROSELLO DESTRO (SCUOLA - PERFETTO)
+           ============================================ */
+        #slideContainerScuola {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.3rem; 
+        }
+        
+        .dashboard[class*="festa-"] #slideContainerScuola {
+            padding: 1rem; 
+        }
+
+        .scuola-image-wrapper {
+            /* Diamo al contenitore la STESSA proporzione fissa del primo carosello */
+            height: 100%;
+            aspect-ratio: 600 / 338; 
+            
+            border-radius: 20px; 
+            border: 2px solid #c00a1c; 
+            overflow: hidden; 
+            position: relative;
+        }
+
+        .scuola-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* L'immagine riempie esattamente la scatola fissa: NESSUNA BANDA VUOTA! */
+            animation: panZoom 6s ease-out forwards;
+        }
+
+        @keyframes panZoom {
+            0% { transform: scale(1.1); opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { transform: scale(1); opacity: 0.85; }
         }
 
         /* Progress Bar */
         .progress-bar { width: 100%; height: 10px; background: #e0eaf5; border-radius: 30px; overflow: hidden; }
         .progress-fill { height: 100%; background: #c00a1c; width: 0%; transition: width 0.1s linear; }
-        .dot-minimal { width: 30px; height: 6px; background: #c0d0e0; border-radius: 10px; }
+        .dot-minimal { width: 30px; height: 6px; background: #c0d0e0; border-radius: 10px; display: inline-block; margin: 0 3px;}
         .dot-minimal.active { background: #c00a1c; width: 50px; }
+        .progress-bar-container { margin-top: 0.5rem; }
+        .progress-info { text-align: center; margin-top: 0.5rem; display: none; }
 
         /* Auguri Speciali */
         .auguri-speciali {
             text-align: center;
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
             padding: 0.4rem;
             background: rgba(255,255,255,0.15);
             border-radius: 50px;
             display: none;
-            animation: pulse 2s infinite;
+            animation: bounce-glow 1.5s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+        @keyframes bounce-glow {
+            0% { transform: scale(1) translateY(0); opacity: 1; }
+            25% { transform: scale(1.08) translateY(-8px); opacity: 1; }
+            50% { transform: scale(1.1) translateY(0); opacity: 1; box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+            75% { transform: scale(1.05) translateY(-4px); opacity: 1; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
         }
     </style>
 </head>
@@ -456,7 +494,6 @@
                 <div class="school-subtitle">O. Belluzzi · L. Da Vinci</div>
             </div>
             
-            <!-- QR CODE con link al sito della scuola -->
             <div class="qr-code">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.ittsrimini.edu.it/" alt="QR Code sito web">
                 <span>Scansiona</span>
@@ -465,10 +502,8 @@
         <div class="saluto" id="saluto">Buongiorno</div>
     </div>
 
-    <!-- AUGURI FESTIVI (appare solo in periodo di festa) -->
     <div class="auguri-speciali" id="auguriSpeciali"></div>
 
-    <!-- AREA METEO - REALE DA OPENWEATHERMAP -->
     <div class="meteo-main">
         <div class="meteo-row-1">
             <div class="data-ora-grande">
@@ -484,7 +519,6 @@
             </div>
         </div>
         
-        <!-- ZONA DATI ATTUALI (3 CARD) - PERCEPITA, UMIDITÀ, PIOGGIA -->
         <div class="meteo-row-2">
             <div class="meteo-dettaglio-card">
                 <span class="dettaglio-icona">🌡️</span>
@@ -509,24 +543,18 @@
             </div>
         </div>
         
-        <!-- ZONA PREVISIONI ORARIE (5 CARD) - PROSSIME ORE -->
         <div class="previsioni-orarie" id="previsioniContainer">
             <div class="previsioni-title">⏱️ PROSSIME ORE</div>
             <div class="previsioni-container" id="previsioniList">
-                <!-- Le card delle previsioni verranno generate qui -->
-            </div>
+                </div>
         </div>
     </div>
 
-    <!-- TITOLO SEZIONE -->
     <div class="section-title">📸 I NOSTRI INDIRIZZI E LA SCUOLA</div>
 
-    <!-- DUE CAROSELLI AFFIANCATI -->
     <div class="carousels-wrapper">
-        <!-- CAROSELLO 1: INDIRIZZI -->
         <div class="carosello">
             <div class="slide-container" id="slideContainer"></div>
-            <!-- PROGRESS BAR -->
             <div class="progress-bar-container">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFill"></div>
@@ -537,10 +565,8 @@
             </div>
         </div>
 
-        <!-- CAROSELLO 2: FOTO DELLA SCUOLA -->
         <div class="carosello">
             <div class="slide-container" id="slideContainerScuola"></div>
-            <!-- PROGRESS BAR -->
             <div class="progress-bar-container">
                 <div class="progress-bar">
                     <div class="progress-fill" id="progressFillScuola"></div>
@@ -557,238 +583,72 @@
     (function() {
         const API_KEY = '34743dedccb2cccfe2b3986b35bf78d4'; 
         
-const indirizzi = [
-    { 
-        nome: 'CHIMICA, MATERIALI E BIOTECNOLOGIE', 
-        desc: 'Analisi chimiche · Biotecnologie · Materiali innovativi · Controllo qualità e gestione impianti',
-        img: 'images/chimica.jpg'
-    },
-    { 
-        nome: 'COSTRUZIONI, AMBIENTE E TERRITORIO (CAT)', 
-        desc: 'Progettazione edilizia · Topografia · Estimo · Edilizia ecocompatibile e sicurezza cantieri',
-        img: 'images/cat.jpg'
-    },
-    { 
-        nome: 'ELETTRONICA ED ELETTROTECNICA', 
-        desc: 'Circuiti elettronici · Impianti elettrici · Automazione industriale e robotica',
-        img: 'images/elettronica.jpg'
-    },
-    { 
-        nome: 'GRAFICA E COMUNICAZIONE', 
-        desc: 'Comunicazione visiva · Editoria · Fotografia · Web design e social media',
-        img: 'images/grafica.jpg'
-    },
-    { 
-        nome: 'INFORMATICA E TELECOMUNICAZIONI', 
-        desc: 'Sviluppo software · Reti e cybersecurity · Basi di dati e applicazioni web',
-        img: 'images/informatica.jpg'
-    },
-    { 
-        nome: 'MECCANICA, MECCATRONICA ED ENERGIA', 
-        desc: 'Progettazione CAD · Automazione e robotica · Impianti industriali ed energetici',
-        img: 'images/meccanica.jpg'
-    }
-];
+        const indirizzi = [
+            { nome: 'CHIMICA, MATERIALI E BIOTECNOLOGIE', desc: 'Analisi chimiche · Biotecnologie · Materiali innovativi · Controllo qualità e gestione impianti', img: 'images/chimica.jpg' },
+            { nome: 'COSTRUZIONI, AMBIENTE E TERRITORIO (CAT)', desc: 'Progettazione edilizia · Topografia · Estimo · Edilizia ecocompatibile e sicurezza cantieri', img: 'images/cat.jpg' },
+            { nome: 'ELETTRONICA ED ELETTROTECNICA', desc: 'Circuiti elettronici · Impianti elettrici · Automazione industriale e robotica', img: 'images/elettronica.jpg' },
+            { nome: 'GRAFICA E COMUNICAZIONE', desc: 'Comunicazione visiva · Editoria · Fotografia · Web design e social media', img: 'images/grafica.jpg' },
+            { nome: 'INFORMATICA E TELECOMUNICAZIONI', desc: 'Sviluppo software · Reti e cybersecurity · Basi di dati e applicazioni web', img: 'images/informatica.jpg' },
+            { nome: 'MECCANICA, MECCATRONICA ED ENERGIA', desc: 'Progettazione CAD · Automazione e robotica · Impianti industriali ed energetici', img: 'images/meccanica.jpg' }
+        ];
 
         const fotoscuola = [
-            { 
-                nome: 'INGRESSO', 
-                desc: 'L\'accoglienza della scuola',
-                img: 'images/img1.jpg'
-            },
-            { 
-                nome: 'LABORATORI', 
-                desc: 'Dove nascono le innovazioni',
-                img: 'images/img3.jpg'
-            },
-            { 
-                nome: 'PALESTRA', 
-                desc: 'Spazio del benessere e dello sport',
-                img: 'images/img3.jpg'
-            },
-            { 
-                nome: 'BIBLIOTECA', 
-                desc: 'Il cuore della conoscenza',
-                img: 'images/img4.jpg'
-            },
-            { 
-                nome: 'STUDENTI AL LAVORO', 
-                desc: 'Passione e dedizione quotidiana',
-                img: 'images/img5.jpg'
-            }
+            { img: 'images/img1.jpg' },
+            { img: 'images/img2.jpg' },
+            { img: 'images/img3.jpg' }, 
+            { img: 'images/img4.jpg' },
+            { img: 'images/img5.jpg' }
         ];
 
         let currentSlide = 0;
         let progressInterval;
         let currentSlideScuola = 0;
         let progressIntervalScuola;
-        const TEMPO_SLIDE = 10000;
+        
+        // TEMPI INDIPENDENTI
+        const TEMPO_SLIDE = 10000; // Sinistra: 10 secondi
+        const TEMPO_SLIDE_SCUOLA = 6000; // Destra: 6 secondi
 
         // ============================================
         // SISTEMA FESTIVITÀ
         // ============================================
-        
         function calcolaPasqua(anno) {
-            const a = anno % 19;
-            const b = Math.floor(anno / 100);
-            const c = anno % 100;
-            const d = Math.floor(b / 4);
-            const e = b % 4;
-            const f = Math.floor((b + 8) / 25);
-            const g = Math.floor((b - f + 1) / 3);
-            const h = (19 * a + b - d - g + 15) % 30;
-            const i = Math.floor(c / 4);
-            const k = c % 4;
-            const l = (32 + 2 * e + 2 * i - h - k) % 7;
-            const m = Math.floor((a + 11 * h + 22 * l) / 451);
-            const mese = Math.floor((h + l - 7 * m + 114) / 31);
-            const giorno = ((h + l - 7 * m + 114) % 31) + 1;
-            
+            const a = anno % 19; const b = Math.floor(anno / 100); const c = anno % 100; const d = Math.floor(b / 4);
+            const e = b % 4; const f = Math.floor((b + 8) / 25); const g = Math.floor((b - f + 1) / 3);
+            const h = (19 * a + b - d - g + 15) % 30; const i = Math.floor(c / 4); const k = c % 4;
+            const l = (32 + 2 * e + 2 * i - h - k) % 7; const m = Math.floor((a + 11 * h + 22 * l) / 451);
+            const mese = Math.floor((h + l - 7 * m + 114) / 31); const giorno = ((h + l - 7 * m + 114) % 31) + 1;
             return new Date(anno, mese - 1, giorno);
         }
 
         function isPeriodoPasqua(data) {
-            const anno = data.getFullYear();
-            const pasqua = calcolaPasqua(anno);
-            
-            const inizioPeriodo = new Date(pasqua);
-            inizioPeriodo.setDate(pasqua.getDate() - 3);
-            
-            const finePeriodo = new Date(pasqua);
-            finePeriodo.setDate(pasqua.getDate() + 3);
-            
+            const anno = data.getFullYear(); const pasqua = calcolaPasqua(anno);
+            const inizioPeriodo = new Date(pasqua); inizioPeriodo.setDate(pasqua.getDate() - 3);
+            const finePeriodo = new Date(pasqua); finePeriodo.setDate(pasqua.getDate() + 3);
             return data >= inizioPeriodo && data <= finePeriodo;
         }
 
-        // FUNZIONE PRINCIPALE CHE DETERMINA LA FESTIVITÀ CORRENTE
-function getFestaCorrente() {
-    const oggi = new Date();
-    const mese = oggi.getMonth() + 1;
-    const giorno = oggi.getDate();
-    const anno = oggi.getFullYear();
-    
-    // ============================================
-    // FESTE ALLUNGATE
-    // ============================================
-    
-    // SAN VALENTINO (1 FEBBRAIO - 21 FEBBRAIO)
-    if (mese === 2 && giorno >= 1 && giorno <= 21) {
-        return {
-            nome: 'san-valentino',
-            auguri: '❤️ Buon San Valentino! ❤️',
-            classe: 'festa-san-valentino'
-        };
-    }
-    
-    // HALLOWEEN (20 OTTOBRE - 31 OTTOBRE)
-    if (mese === 10 && giorno >= 20 && giorno <= 31) {
-        return {
-            nome: 'halloween',
-            auguri: '🎃 Dolcetto o scherzetto? Buon Halloween! 🎃',
-            classe: 'festa-halloween'
-        };
-    }
-    
-    // ============================================
-    // FESTE CON SETTIMANA PRIMA + GIORNO STESSO
-    // ============================================
-    
-    // FESTA DELLA DONNA (1 MARZO - 8 MARZO)
-    if (mese === 3 && giorno >= 1 && giorno <= 8) {
-        return {
-            nome: 'donna',
-            auguri: '🌸 Festa della Donna · 8 Marzo 🌸',
-            classe: 'festa-donna'
-        };
-    }
-    
-    // SAN GAUDENZIO - PATRONO DI RIMINI (7 OTTOBRE - 14 OTTOBRE)
-    if (mese === 10 && giorno >= 7 && giorno <= 14) {
-        return {
-            nome: 'gaudenzio',
-            auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉',
-            classe: 'festa-gaudenzio'
-        };
-    }
-    
-    // ============================================
-    // FESTE A DATA SINGOLA (invariate)
-    // ============================================
-    
-    // Festa della Repubblica (2 giugno, giorni prima)
-    if (mese === 5 && giorno >= 28 || (mese === 6 && giorno <= 2)) {
-        return {
-            nome: 'repubblica',
-            auguri: '🇮🇹 Festa della Repubblica Italiana! 🇮🇹',
-            classe: 'festa-repubblica'
-        };
-    }
-    
-    // Feste natalizie (15 dicembre - 10 gennaio)
-    if ((mese === 12 && giorno >= 15) || (mese === 1 && giorno <= 10)) {
-        return {
-            nome: 'natale',
-            auguri: '🎄 Buon Natale e Felice Anno Nuovo! 🎄',
-            classe: 'festa-natale'
-        };
-    }
-    
-    // Giornata della Memoria (27 gennaio)
-    if (mese === 1 && giorno === 27) {
-        return {
-            nome: 'memoria',
-            auguri: '🕯️ Giornata della Memoria · Per non dimenticare 🕯️',
-            classe: 'festa-memoria'
-        };
-    }
-    
-    // Festa del Papà (19 marzo)
-    if (mese === 3 && giorno === 19) {
-        return {
-            nome: 'papa',
-            auguri: '👔 Buona Festa del Papà! 👔',
-            classe: 'festa-papa'
-        };
-    }
-    
-    // Festa dei Nonni (2 ottobre)
-    if (mese === 10 && giorno === 2) {
-        return {
-            nome: 'nonni',
-            auguri: '👴👵 Buona Festa dei Nonni! 👴👵',
-            classe: 'festa-nonni'
-        };
-    }
-    
-    // Festa della Mamma (seconda domenica di maggio)
-    if (mese === 5) {
-        const primaDomenica = new Date(anno, 4, 1);
-        while (primaDomenica.getDay() !== 0) {
-            primaDomenica.setDate(primaDomenica.getDate() + 1);
+        function getFestaCorrente() {
+            const oggi = new Date(); const mese = oggi.getMonth() + 1; const giorno = oggi.getDate(); const anno = oggi.getFullYear();
+            
+            if (mese === 2 && giorno >= 1 && giorno <= 21) return { nome: 'san-valentino', auguri: '❤️ Buon San Valentino! ❤️', classe: 'festa-san-valentino' };
+            if (mese === 10 && giorno >= 20 && giorno <= 31) return { nome: 'halloween', auguri: '🎃 Dolcetto o scherzetto? Buon Halloween! 🎃', classe: 'festa-halloween' };
+            if (mese === 3 && giorno >= 1 && giorno <= 8) return { nome: 'donna', auguri: '🌸 Festa della Donna · 8 Marzo 🌸', classe: 'festa-donna' };
+            if (mese === 10 && giorno >= 7 && giorno <= 14) return { nome: 'gaudenzio', auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉', classe: 'festa-gaudenzio' };
+            if (mese === 5 && giorno >= 28 || (mese === 6 && giorno <= 2)) return { nome: 'repubblica', auguri: '🇮🇹 Festa della Repubblica Italiana! 🇮🇹', classe: 'festa-repubblica' };
+            if ((mese === 12 && giorno >= 15) || (mese === 1 && giorno <= 10)) return { nome: 'natale', auguri: '🎄 Buon Natale e Felice Anno Nuovo! 🎄', classe: 'festa-natale' };
+            if (mese === 1 && giorno === 27) return { nome: 'memoria', auguri: '🕯️ Giornata della Memoria · Per non dimenticare 🕯️', classe: 'festa-memoria' };
+            if (mese === 3 && giorno === 19) return { nome: 'papa', auguri: '👔 Buona Festa del Papà! 👔', classe: 'festa-papa' };
+            if (mese === 10 && giorno === 2) return { nome: 'nonni', auguri: '👴👵 Buona Festa dei Nonni! 👴👵', classe: 'festa-nonni' };
+            if (mese === 5) {
+                const primaDomenica = new Date(anno, 4, 1);
+                while (primaDomenica.getDay() !== 0) primaDomenica.setDate(primaDomenica.getDate() + 1);
+                const secondaDomenica = new Date(primaDomenica); secondaDomenica.setDate(primaDomenica.getDate() + 7);
+                if (oggi.toDateString() === secondaDomenica.toDateString()) return { nome: 'mamma', auguri: '🌷 Buona Festa della Mamma! 🌷', classe: 'festa-mamma' };
+            }
+            if (isPeriodoPasqua(oggi)) return { nome: 'pasqua', auguri: '🐣 Buona Pasqua! 🐣', classe: 'festa-pasqua' };
+            return null;
         }
-        const secondaDomenica = new Date(primaDomenica);
-        secondaDomenica.setDate(primaDomenica.getDate() + 7);
-        
-        if (oggi.toDateString() === secondaDomenica.toDateString()) {
-            return {
-                nome: 'mamma',
-                auguri: '🌷 Buona Festa della Mamma! 🌷',
-                classe: 'festa-mamma'
-            };
-        }
-    }
-    
-    // Pasqua (periodo di ±3 giorni)
-    if (isPeriodoPasqua(oggi)) {
-        return {
-            nome: 'pasqua',
-            auguri: '🐣 Buona Pasqua! 🐣',
-            classe: 'festa-pasqua'
-        };
-    }
-    
-    return null;
-}
 
         function applicaTemaFestivo() {
             const festa = getFestaCorrente();
@@ -799,39 +659,25 @@ function getFestaCorrente() {
             body.className = '';
             dashboard.className = 'dashboard';
             
-            const classiFesta = [
-                'festa-natale', 'festa-halloween', 'festa-pasqua', 
-                'festa-san-valentino', 'festa-memoria', 'festa-donna',
-                'festa-papa', 'festa-nonni', 'festa-mamma',
-                'festa-gaudenzio', 'festa-repubblica'
-            ];
-            
-            classiFesta.forEach(classe => {
-                body.classList.remove(classe);
-                dashboard.classList.remove(classe);
-            });
+            const classiFesta = ['festa-natale', 'festa-halloween', 'festa-pasqua', 'festa-san-valentino', 'festa-memoria', 'festa-donna', 'festa-papa', 'festa-nonni', 'festa-mamma', 'festa-gaudenzio', 'festa-repubblica'];
+            classiFesta.forEach(classe => { body.classList.remove(classe); dashboard.classList.remove(classe); });
             
             if (festa) {
-                body.classList.add(festa.classe);
-                dashboard.classList.add(festa.classe);
-                auguriElement.textContent = festa.auguri;
-                auguriElement.style.display = 'block';
+                body.classList.add(festa.classe); dashboard.classList.add(festa.classe);
+                auguriElement.textContent = festa.auguri; auguriElement.style.display = 'block';
             } else {
                 auguriElement.style.display = 'none';
             }
         }
 
-        // SALUTO BASATO SULL'ORA
         function aggiornaSaluto() {
             const salutoEl = document.getElementById('saluto');
             const ora = new Date().getHours();
-            
             if (ora >= 5 && ora < 13) salutoEl.textContent = 'Buongiorno 🌅';
             else if (ora >= 13 && ora < 18) salutoEl.textContent = 'Buon pomeriggio ☀️';
             else salutoEl.textContent = 'Buonasera 🌙';
         }
 
-        // DATA E ORA
         function aggiornaOraData() {
             const now = new Date();
             const ore = String(now.getHours()).padStart(2, '0');
@@ -840,12 +686,9 @@ function getFestaCorrente() {
             
             const giorni = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
             const mesi = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
-            
-            document.getElementById('data').textContent = 
-                `${giorni[now.getDay()]} ${now.getDate()} ${mesi[now.getMonth()]} ${now.getFullYear()}`;
+            document.getElementById('data').textContent = `${giorni[now.getDay()]} ${now.getDate()} ${mesi[now.getMonth()]} ${now.getFullYear()}`;
         }
 
-        // FUNZIONE PER ICONA METEO
         function getIconaMeteo(condizione) {
             const desc = condizione.toLowerCase();
             if (desc.includes('sereno') || desc.includes('clear')) return '☀️';
@@ -858,7 +701,6 @@ function getFestaCorrente() {
             return '⛅';
         }
 
-        // FUNZIONE PER AGGIORNARE LE PREVISIONI ORARIE
         function aggiornaPrevisioni(forecastData) {
             const previsioniList = document.getElementById('previsioniList');
             if (!previsioniList || !forecastData || !forecastData.list) return;
@@ -869,18 +711,12 @@ function getFestaCorrente() {
             let html = '';
             for (let i = 1; i <= 5; i++) {
                 const targetHour = (oraCorrente + i) % 24;
-                
-                // Trova la previsione con ora più vicina a targetHour
-                let closestIndex = 0;
-                let minDiff = Infinity;
+                let closestIndex = 0; let minDiff = Infinity;
                 for (let j = 0; j < forecastData.list.length; j++) {
                     const forecastDate = new Date(forecastData.list[j].dt * 1000);
                     const forecastHour = forecastDate.getHours();
                     const diff = Math.abs(forecastHour - targetHour);
-                    if (diff < minDiff) {
-                        minDiff = diff;
-                        closestIndex = j;
-                    }
+                    if (diff < minDiff) { minDiff = diff; closestIndex = j; }
                 }
                 
                 const previsione = forecastData.list[closestIndex];
@@ -890,72 +726,44 @@ function getFestaCorrente() {
                 const icona = getIconaMeteo(desc);
                 const oraStr = String(targetHour).padStart(2, '0') + ':00';
                 
-                html += `
-                    <div class="previsione-card">
-                        <div class="previsione-ora">${oraStr}</div>
-                        <div class="previsione-icona">${icona}</div>
-                        <div class="previsione-temp">${temp}°</div>
-                        <div class="previsione-pioggia">💧 ${pioggia}%</div>
-                    </div>
-                `;
+                html += `<div class="previsione-card"><div class="previsione-ora">${oraStr}</div><div class="previsione-icona">${icona}</div><div class="previsione-temp">${temp}°</div><div class="previsione-pioggia">💧 ${pioggia}%</div></div>`;
             }
-            
             previsioniList.innerHTML = html;
         }
 
-        // METEO REALE DA OPENWEATHERMAP
         async function caricaMeteoReale() {
             const citta = 'Rimini';
-            
             const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${citta}&units=metric&lang=it&appid=${API_KEY}`;
             
             try {
                 const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citta}&units=metric&lang=it&appid=${API_KEY}`);
-                
-                if (!weatherResponse.ok) {
-                    throw new Error(`Errore API: ${weatherResponse.status}`);
-                }
+                if (!weatherResponse.ok) throw new Error(`Errore API: ${weatherResponse.status}`);
                 
                 const data = await weatherResponse.json();
-                
                 const forecastResponse = await fetch(forecastUrl);
                 let rainProbability = 0;
-                let forecastData = null;
                 
                 if (forecastResponse.ok) {
-                    forecastData = await forecastResponse.json();
+                    const forecastData = await forecastResponse.json();
                     if (forecastData.list && forecastData.list[0] && forecastData.list[0].pop !== undefined) {
                         rainProbability = Math.round(forecastData.list[0].pop * 100);
                     }
-                    // Aggiorna le previsioni orarie
                     aggiornaPrevisioni(forecastData);
                 }
                 
-                const temp = Math.round(data.main.temp);
-                const feelsLike = Math.round(data.main.feels_like);
-                const humidity = data.main.humidity;
-                const description = data.weather[0].description;
-                
-                document.getElementById('temp').innerHTML = temp + '°';
-                document.getElementById('desc').innerHTML = description;
-                document.getElementById('iconaMeteo').innerHTML = getIconaMeteo(description);
-                document.getElementById('percepita').innerHTML = feelsLike + '°';
-                document.getElementById('umidita').innerHTML = humidity + '%';
+                document.getElementById('temp').innerHTML = Math.round(data.main.temp) + '°';
+                document.getElementById('desc').innerHTML = data.weather[0].description;
+                document.getElementById('iconaMeteo').innerHTML = getIconaMeteo(data.weather[0].description);
+                document.getElementById('percepita').innerHTML = Math.round(data.main.feels_like) + '°';
+                document.getElementById('umidita').innerHTML = data.main.humidity + '%';
                 document.getElementById('pioggia').innerHTML = rainProbability + '%';
                 
             } catch (error) {
                 console.error('Errore nel caricamento del meteo:', error);
-                
-                document.getElementById('temp').innerHTML = '--°';
-                document.getElementById('desc').innerHTML = 'Errore caricamento';
-                document.getElementById('iconaMeteo').innerHTML = '❓';
-                document.getElementById('percepita').innerHTML = '--°';
-                document.getElementById('umidita').innerHTML = '--%';
-                document.getElementById('pioggia').innerHTML = '--%';
             }
         }
 
-        // CAROSELLO
+        // AGGIORNAMENTO CAROSELLO 1 (SINISTRA)
         function aggiornaSlide(index) {
             const container = document.getElementById('slideContainer');
             const s = indirizzi[index];
@@ -977,17 +785,14 @@ function getFestaCorrente() {
             resetProgressBar();
         }
 
+        // AGGIORNAMENTO CAROSELLO 2 (DESTRA - CORRETTO)
         function aggiornaSlideScuola(index) {
             const container = document.getElementById('slideContainerScuola');
             const s = fotoscuola[index];
             
             container.innerHTML = `
-                <div class="indirizzo-image-area">
-                    <img src="${s.img}" alt="${s.nome}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>📷</div>';">
-                </div>
-                <div class="indirizzo-text-area">
-                    <div class="indirizzo-nome">${s.nome}</div>
-                    <div class="indirizzo-desc">${s.desc}</div>
+                <div class="scuola-image-wrapper">
+                    <img src="${s.img}" alt="Foto Scuola" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>📷</div>';">
                 </div>
             `;
 
@@ -1000,7 +805,6 @@ function getFestaCorrente() {
 
         function resetProgressBar() {
             if (progressInterval) clearInterval(progressInterval);
-            
             const progressFill = document.getElementById('progressFill');
             progressFill.style.width = '0%';
             
@@ -1009,30 +813,23 @@ function getFestaCorrente() {
                 const elapsed = Date.now() - startTime;
                 const percent = (elapsed / TEMPO_SLIDE) * 100;
                 
-                if (percent <= 100) {
-                    progressFill.style.width = percent + '%';
-                } else {
-                    clearInterval(progressInterval);
-                }
+                if (percent <= 100) progressFill.style.width = percent + '%';
+                else clearInterval(progressInterval);
             }, 50);
         }
 
         function resetProgressBarScuola() {
             if (progressIntervalScuola) clearInterval(progressIntervalScuola);
-            
             const progressFill = document.getElementById('progressFillScuola');
             progressFill.style.width = '0%';
             
             const startTime = Date.now();
             progressIntervalScuola = setInterval(() => {
                 const elapsed = Date.now() - startTime;
-                const percent = (elapsed / TEMPO_SLIDE) * 100;
+                const percent = (elapsed / TEMPO_SLIDE_SCUOLA) * 100;
                 
-                if (percent <= 100) {
-                    progressFill.style.width = percent + '%';
-                } else {
-                    clearInterval(progressIntervalScuola);
-                }
+                if (percent <= 100) progressFill.style.width = percent + '%';
+                else clearInterval(progressIntervalScuola);
             }, 50);
         }
 
@@ -1064,7 +861,6 @@ function getFestaCorrente() {
             });
         }
 
-        // AVVIO
         window.addEventListener('DOMContentLoaded', () => {
             aggiornaSaluto();
             aggiornaOraData();
@@ -1076,8 +872,8 @@ function getFestaCorrente() {
             aggiornaSlide(0);
             aggiornaSlideScuola(0);
             
-            setInterval(slideSuccessiva, TEMPO_SLIDE);
-            setInterval(slideSuccessivaScuola, TEMPO_SLIDE);
+            setInterval(slideSuccessiva, TEMPO_SLIDE); // 10s
+            setInterval(slideSuccessivaScuola, TEMPO_SLIDE_SCUOLA); // 6s
             setInterval(aggiornaOraData, 1000);
             setInterval(caricaMeteoReale, 900000);
             setInterval(aggiornaSaluto, 60000);
