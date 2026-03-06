@@ -32,11 +32,12 @@
             flex-direction: column;
             padding: 0 2rem;
             transition: background-color 0.5s ease, color 0.5s ease;
+            position: relative;
         }
 
         /* ============================================
            TEMI FESTIVITÀ
-           ============================================ */
+           =================================                                                                                                                         =========== */
         body.festa-natale { background: #1a3f2a; }
         body.festa-halloween { background: #2a1a1a; }
         body.festa-pasqua { background: #3a2a4a; }
@@ -62,7 +63,7 @@
            ------------------------------------------- */
         /* Sfondi chiari e testo scuro per leggibilità su giallo */
         .dashboard.festa-donna .slide-container {
-            background: rgba(255,255,255,0.9);
+            background: white;
             border-color: rgba(0,0,0,0.1);
         }
         .dashboard.festa-donna .previsioni-orarie {
@@ -77,11 +78,37 @@
         .dashboard.festa-donna .meteo-dettaglio-card {
             background: rgba(255,255,255,0.9);
         }
+        .dashboard.festa-donna .meteo-riassunto {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .dashboard.festa-donna .notizia-item {
+            background: white;
+            border-left-color: #2d8a4e;
+        }
+        .dashboard.festa-donna .qr-code {
+            border-color: #2d8a4e !important;
+        }
 
-        /* Colore dei bordi verde mimosa */
+        .dashboard.festa-donna .saluto {
+            background: white !important;
+            border-color: rgba(0,0,0,0.1) !important;
+        }
+
+        /* Colore dei bordi verde mimosa - applicato a tutti gli elementi del carosello */
+        .dashboard.festa-donna .indirizzo-image-area {
+            border-color: #2d8a4e !important;
+        }
+        
+        .dashboard.festa-donna .slide-container.tipo-scuola .indirizzo-image-area {
+            border-color: #2d8a4e !important;
+        }
+        
+        .dashboard.festa-donna .slide-container.tipo-indirizzo .indirizzo-image-area {
+            border-color: #2d8a4e !important;
+        }
+
         .dashboard.festa-donna .top-bar { border-bottom-color: #2d8a4e; }
-        .dashboard.festa-donna .indirizzo-image-area { border-color: #2d8a4e; }
-        .dashboard.festa-donna .scuola-image-wrapper { border-color: #2d8a4e; }
         .dashboard.festa-donna .progress-fill { background: #2d8a4e; }
         /* ------------------------------------------- */
 
@@ -172,26 +199,6 @@
             color: inherit; 
         }
 
-        .qr-code {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: white; 
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            border: 2px solid #c00a1c;
-            margin-left: 1rem;
-        }
-
-        .dashboard[class*="festa-"] .qr-code { 
-            background: white !important; 
-            border-color: #c00a1c; 
-        }
-
-        .qr-code img { width: 50px; height: 50px; }
-        .qr-code span { font-size: 1.2rem; font-weight: 600; color: #0a2b44; }
-        .dashboard[class*="festa-"] .qr-code span { color: #0a2b44; }
-
         /* Contenitore destra per Saluto + Firma */
         .top-right-area {
             display: flex;
@@ -230,14 +237,88 @@
             color: inherit;
         }
 
+/* ============================================
+   QR CODE AREA - AFFIANCO AL CAROSELLO
+   ============================================ */
+.carousel-qr-wrapper {
+    display: flex;
+    gap: 0;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+.carosello-wrapper {
+    width: 50%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.qr-sidebar {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.qr-code {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.2rem;
+    background: white;
+    padding: 0.9rem 2rem;
+    border-radius: 80px;
+    border: 4px solid #c00a1c;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    width: 375px;
+}
+
+.dashboard[class*="festa-"] .qr-code { 
+    background: white !important; 
+    border-color: #c00a1c; 
+}
+
+.qr-code img { 
+    width: 80px; 
+    height: 80px; 
+    flex-shrink: 0;
+}
+
+.qr-code span { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: #0a2b44;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.dashboard[class*="festa-"] .qr-code span { 
+    color: #0a2b44; 
+}
+
         /* ============================================
-           AREA METEO 
+           WRAPPER METEO + NOTIZIE
+           ============================================ */
+        .meteo-notizie-wrapper {
+            display: flex;
+            gap: 1rem;
+            margin: 0.5rem 0 1rem 0;
+            align-items: stretch;
+        }
+
+        /* ============================================
+           AREA METEO
            ============================================ */
         .meteo-main {
+            width: 50%;
+            flex-shrink: 0;
             background: linear-gradient(135deg, #0a2b44 0%, #1a3f5c 100%);
             color: white;
-            margin: 1rem 0;
-            padding: 1.2rem 1.7rem;
+            padding: 1rem 1.5rem;
             border-radius: 30px;
             display: flex;
             flex-direction: column;
@@ -250,49 +331,150 @@
             backdrop-filter: blur(5px); 
         }
 
-        .meteo-row-1 {
+        /* ============================================
+           BOX NOTIZIE
+           ============================================ */
+        .notizie-box {
+            flex: 1;
+            background: linear-gradient(135deg, #0a2b44 0%, #1a3f5c 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 1rem 1.4rem;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+            flex-direction: column;
+            box-shadow: 0 15px 30px rgba(0,20,40,0.3);
+            overflow: hidden;
         }
 
-        .ora-grande { font-size: 3.5rem; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 3px; }
-        .data-grande { font-size: 2rem; font-weight: 400; opacity: 0.9; }
+        .dashboard[class*="festa-"] .notizie-box {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .notizie-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 0.6rem;
+        }
+
+        .notizie-icon { font-size: 1.3rem; }
+
+        .notizie-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            flex: 1;
+        }
+
+        .notizie-link {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .notizie-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 0.5rem;
+        }
+
+        .notizia-item {
+            background: rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 0.7rem 1rem;
+            border-left: 3px solid #c00a1c;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            transition: background 0.2s;
+        }
+
+        .notizia-titolo {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .notizia-data {
+            font-size: 0.75rem;
+            opacity: 0.6;
+            font-weight: 400;
+        }
+
+        .notizia-loading {
+            opacity: 0.5;
+            font-size: 0.95rem;
+            text-align: center;
+            margin: auto;
+        }
+
+        /* Data e Meteo attuale: data a sinistra, meteo a destra */
+        .meteo-row-1 {
+            display: flex;
+            justify-content: space-between; 
+            gap: 0.5rem;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .data-ora-grande { 
+            display: flex; 
+            flex-direction: column; 
+            margin-right: 0.5rem;
+        }
+        
+        .ora-grande { font-size: 2.8rem; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 2px; line-height: 1; }
+        .data-grande { font-size: 1.3rem; font-weight: 400; opacity: 0.9; margin-top: 0.2rem;}
 
         .meteo-riassunto {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 0.5rem;
             background: rgba(255,255,255,0.1);
-            padding: 0.6rem 1.7rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 80px;
         }
 
-        .icona-meteo-grande { font-size: 3.2rem; }
-        .temp-grande { font-size: 3.2rem; font-weight: 700; }
-        .desc-grande { font-size: 1.4rem; text-transform: capitalize; }
+        .icona-temp-grande { display: flex; align-items: center; gap: 0.5rem; }
+        .icona-meteo-grande { font-size: 2.5rem; }
+        .temp-grande { font-size: 2.5rem; font-weight: 700; }
+        .desc-grande { font-size: 1.1rem; text-transform: capitalize; }
 
-        .meteo-row-2 { display: flex; justify-content: space-around; padding: 0.3rem 0; margin-bottom: 0.5rem; }
+        .meteo-row-2 { display: flex; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; }
 
         .meteo-dettaglio-card {
             background: rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 0.6rem 1.2rem;
+            border-radius: 15px;
+            padding: 0.5rem 0.8rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             flex: 1;
-            margin: 0 0.4rem;
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .dettaglio-icona { font-size: 1.8rem; }
-        .dettaglio-label { font-size: 0.8rem; text-transform: uppercase; opacity: 0.7; }
-        .dettaglio-valore { font-size: 1.5rem; font-weight: 600; }
+        .dettaglio-icona { font-size: 1.4rem; }
+        .dettaglio-testo { display: flex; flex-direction: column; }
+        .dettaglio-label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; }
+        .dettaglio-valore { font-size: 1.2rem; font-weight: 600; }
 
+        /* Previsioni orarie */
         .previsioni-orarie { padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
-        .previsioni-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; opacity: 0.9; }
+        .previsioni-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; opacity: 0.9; }
         .previsioni-container { display: flex; justify-content: space-between; gap: 0.6rem; }
 
         .previsione-card {
@@ -307,12 +489,12 @@
         }
 
         .previsione-ora { font-size: 0.9rem; font-weight: 600; }
-        .previsione-icona { font-size: 1.5rem; }
-        .previsione-temp { font-size: 1.2rem; font-weight: 700; }
-        .previsione-pioggia { font-size: 0.8rem; opacity: 0.8; }
+        .previsione-icona { font-size: 1.3rem; margin: 0.2rem 0; }
+        .previsione-temp { font-size: 1.1rem; font-weight: 700; }
+        .previsione-pioggia { font-size: 0.75rem; opacity: 0.8; }
 
         /* ============================================
-           CAROSELLI E STRUTTURA
+           CAROSELLO - IMMAGINI MENO SCHIACCIATE
            ============================================ */
         .section-title {
             font-size: 1.3rem;
@@ -323,35 +505,44 @@
 
         .dashboard[class*="festa-"] .section-title { color: inherit; }
 
-        .carousels-wrapper {
-            flex: 1;
-            display: flex;
-            gap: 1.5rem;
-            min-height: 0;
-        }
-
-        .carosello {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 0;
-            width: 50%;
-        }
-
         .slide-container {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: center;
             background: #f5f9ff;
             border-radius: 30px;
-            padding: 1.3rem;
+            padding: 1.5rem;
             border: 2px solid #d0e0f0;
-            margin-bottom: 0.8rem;
             height: 100%;
-            max-height: 320px; 
-            transition: all 0.5s ease;
+            min-height: 300px;
+            max-height: 350px;
+            transition: background 0.5s ease, border-color 0.5s ease;
             position: relative;
+            overflow: hidden;
+        }
+
+        .slide-container.tipo-scuola {
+            padding: 1.5rem;
+            background: #0a2b44;
+            border-color: #c00a1c;
+            justify-content: flex-end;
+            gap: 2rem;
+        }
+
+        .slide-container.tipo-scuola .indirizzo-text-area {
+            flex: 1;
+            min-width: 0;
+            color: white;
+            text-align: right;
+        }
+
+        .slide-container.tipo-scuola .indirizzo-nome,
+        .slide-container.tipo-scuola .indirizzo-desc {
+            color: white;
+        }
+
+        .slide-container.tipo-scuola .indirizzo-desc {
+            border-top-color: rgba(255,255,255,0.35);
         }
 
         .dashboard[class*="festa-"] .slide-container { 
@@ -359,29 +550,38 @@
             border-color: rgba(255,255,255,0.3); 
         }
 
+        /* Donna: sfondo bianco pieno per i caroselli */
+        .dashboard.festa-donna .slide-container,
+        .dashboard.festa-donna .slide-container.tipo-scuola {
+            background: #fffef5 !important;
+            border-color: rgba(0,0,0,0.08) !important;
+        }
+
+        .dashboard.festa-donna .indirizzo-desc {
+            border-top-color: #2d8a4e !important;
+        }
+
+        .dashboard[class*="festa-"] .slide-container.tipo-scuola {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.5);
+        }
+
         /* ============================================
-           STILI CAROSELLO SINISTRO (INDIRIZZI)
+           STILI CAROSELLO - IMMAGINI MENO SCHIACCIATE
            ============================================ */
         .indirizzo-image-area {
-            width: 340px; 
+            width: 400px;
             height: auto;
-            aspect-ratio: 600 / 338;
+            aspect-ratio: 16 / 9;
             align-self: center;
             background: transparent;
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #c00a1c;
+            border: 3px solid #c00a1c;
             overflow: hidden;
             flex-shrink: 0;
-        }
-
-        .indirizzo-image-area img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover;
-            display: block;
         }
 
         .indirizzo-text-area {
@@ -392,7 +592,7 @@
         }
 
         .indirizzo-nome {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             line-height: 1.1;
             font-weight: 800;
             color: #0a2b44;
@@ -401,7 +601,7 @@
         }
 
         .indirizzo-desc {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #2a4c73;
             border-top: 3px solid #c00a1c;
             padding-top: 0.8rem;
@@ -412,69 +612,47 @@
         .dashboard[class*="festa-"] .indirizzo-desc { border-top-color: rgba(255,255,255,0.3); }
 
         .dashboard[class*="festa-"] .slide-container {
-            gap: 1rem;
-            padding: 1rem;
-            max-height: 280px;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            min-height: 280px;
+            max-height: 320px;
         }
 
         .dashboard[class*="festa-"] .indirizzo-image-area {
-            width: 280px; 
-            border-width: 2px;
+            width: 350px;
+            border-width: 3px;
         }
 
         .dashboard[class*="festa-"] .indirizzo-nome {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
         }
 
         .dashboard[class*="festa-"] .indirizzo-desc {
-            font-size: 1rem;
-            padding-top: 0.5rem;
+            font-size: 1.1rem;
+            padding-top: 0.6rem;
             border-top-width: 2px;
         }
 
         /* ============================================
-           STILI CAROSELLO DESTRO (SCUOLA - PERFETTO)
+           ANIMAZIONE DE-ZOOM
            ============================================ */
-        #slideContainerScuola {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.3rem; 
-        }
-        
-        .dashboard[class*="festa-"] #slideContainerScuola {
-            padding: 1rem; 
-        }
-
-        .scuola-image-wrapper {
-            /* Diamo al contenitore la STESSA proporzione fissa del primo carosello */
-            height: 100%;
-            aspect-ratio: 600 / 338; 
-            
-            border-radius: 20px; 
-            border: 2px solid #c00a1c; 
-            overflow: hidden; 
-            position: relative;
-        }
-
-        .scuola-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* L'immagine riempie esattamente la scatola fissa */
-            animation: panZoom 6s ease-out forwards;
-        }
-
         @keyframes panZoom {
-            0% { transform: scale(1.1); opacity: 0; }
+            0% { transform: scale(1.12); opacity: 0; }
             5% { opacity: 1; }
             95% { opacity: 1; }
-            100% { transform: scale(1); opacity: 0.85; }
+            100% { transform: scale(1); opacity: 0.9; }
         }
 
-        /* Progress Bar */
-        .progress-bar { width: 100%; height: 10px; background: #e0eaf5; border-radius: 30px; overflow: hidden; }
-        .progress-fill { height: 100%; background: #c00a1c; width: 0%; transition: width 0.1s linear; }
+        .indirizzo-image-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            animation: panZoom 8s ease-out forwards;
+        }
+
+        /* Punti di indicazione (Dots) */
         .dot-minimal { width: 30px; height: 6px; background: #c0d0e0; border-radius: 10px; display: inline-block; margin: 0 3px;}
         .dot-minimal.active { background: #c00a1c; width: 50px; }
         .progress-bar-container { margin-top: 0.5rem; }
@@ -514,11 +692,6 @@
                 <div class="school-name">I.T.T.S. Rimini</div>
                 <div class="school-subtitle">O. Belluzzi · L. Da Vinci</div>
             </div>
-            
-            <div class="qr-code">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.ittsrimini.edu.it/" alt="QR Code sito web">
-                <span>Scansiona</span>
-            </div>
         </div>
         <div class="top-right-area">
             <div class="saluto" id="saluto">Buongiorno</div>
@@ -528,79 +701,89 @@
 
     <div class="auguri-speciali" id="auguriSpeciali"></div>
 
-    <div class="meteo-main">
-        <div class="meteo-row-1">
-            <div class="data-ora-grande">
-                <span class="ora-grande" id="ora">--:--</span>
-                <span class="data-grande" id="data">--- --- ----</span>
-            </div>
-            <div class="meteo-riassunto">
-                <div class="icona-temp-grande">
-                    <span class="icona-meteo-grande" id="iconaMeteo">☀️</span>
-                    <span class="temp-grande" id="temp">--°</span>
+    <div class="meteo-notizie-wrapper">
+        <div class="meteo-main">
+            <div class="meteo-row-1">
+                <div class="data-ora-grande">
+                    <span class="ora-grande" id="ora">--:--</span>
+                    <span class="data-grande" id="data">--- --- ----</span>
                 </div>
-                <span class="desc-grande" id="desc">caricamento...</span>
+                <div class="meteo-riassunto">
+                    <div class="icona-temp-grande">
+                        <span class="icona-meteo-grande" id="iconaMeteo">☀️</span>
+                        <span class="temp-grande" id="temp">--°</span>
+                    </div>
+                    <span class="desc-grande" id="desc">caricamento...</span>
+                </div>
+            </div>
+            
+            <div class="meteo-row-2">
+                <div class="meteo-dettaglio-card">
+                    <span class="dettaglio-icona">🌡️</span>
+                    <div class="dettaglio-testo">
+                        <span class="dettaglio-label">Percepita</span>
+                        <span class="dettaglio-valore" id="percepita">--°</span>
+                    </div>
+                </div>
+                <div class="meteo-dettaglio-card">
+                    <span class="dettaglio-icona">💧</span>
+                    <div class="dettaglio-testo">
+                        <span class="dettaglio-label">Umidità</span>
+                        <span class="dettaglio-valore" id="umidita">--%</span>
+                    </div>
+                </div>
+                <div class="meteo-dettaglio-card">
+                    <span class="dettaglio-icona">☔</span>
+                    <div class="dettaglio-testo">
+                        <span class="dettaglio-label">Pioggia</span>
+                        <span class="dettaglio-valore" id="pioggia">--%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="previsioni-orarie" id="previsioniContainer">
+                <div class="previsioni-title">⏱️ PROSSIME ORE</div>
+                <div class="previsioni-container" id="previsioniList"></div>
             </div>
         </div>
-        
-        <div class="meteo-row-2">
-            <div class="meteo-dettaglio-card">
-                <span class="dettaglio-icona">🌡️</span>
-                <div class="dettaglio-testo">
-                    <span class="dettaglio-label">Percepita</span>
-                    <span class="dettaglio-valore" id="percepita">--°</span>
-                </div>
+
+        <div class="notizie-box">
+            <div class="notizie-header">
+                <span class="notizie-icon">📰</span>
+                <span class="notizie-title">Ultime Notizie</span>
             </div>
-            <div class="meteo-dettaglio-card">
-                <span class="dettaglio-icona">💧</span>
-                <div class="dettaglio-testo">
-                    <span class="dettaglio-label">Umidità</span>
-                    <span class="dettaglio-valore" id="umidita">--%</span>
-                </div>
+            <div class="notizie-list" id="notizieList">
+                <div class="notizia-loading">Caricamento notizie...</div>
             </div>
-            <div class="meteo-dettaglio-card">
-                <span class="dettaglio-icona">☔</span>
-                <div class="dettaglio-testo">
-                    <span class="dettaglio-label">Pioggia</span>
-                    <span class="dettaglio-valore" id="pioggia">--%</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="previsioni-orarie" id="previsioniContainer">
-            <div class="previsioni-title">⏱️ PROSSIME ORE</div>
-            <div class="previsioni-container" id="previsioniList">
-                </div>
         </div>
     </div>
 
     <div class="section-title">📸 I NOSTRI INDIRIZZI E LA SCUOLA</div>
 
-    <div class="carousels-wrapper">
-        <div class="carosello">
-            <div class="slide-container" id="slideContainer"></div>
-            <div class="progress-bar-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-info">
-                    <div class="dots-minimal" id="dotsMinimal"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="carosello">
-            <div class="slide-container" id="slideContainerScuola"></div>
-            <div class="progress-bar-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFillScuola"></div>
-                </div>
-                <div class="progress-info">
-                    <div class="dots-minimal" id="dotsMinimalScuola"></div>
-                </div>
+    <!-- NUOVO LAYOUT: CAROSELLO + QR AFFIANCATI -->
+<div class="carousel-qr-wrapper">
+    <!-- Carosello a sinistra (più largo) -->
+    <div class="carosello-wrapper">
+        <div class="slide-container" id="slideContainerUnico"></div>
+        <div class="progress-bar-container">
+            <div class="progress-info">
+                <div class="dots-minimal" id="dotsMinimalUnico"></div>
             </div>
         </div>
     </div>
+
+    <!-- QR Code a destra (sidebar) - ICONE INGRANDITE -->
+    <div class="qr-sidebar">
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.ittsrimini.edu.it/" alt="QR sito web">
+            <span>📱 Sito della scuola</span>
+        </div>
+        <div class="qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.instagram.com/itts.belluzzidavincirimini?utm_source=qr&igsh=MWRrZ2ZlY3RlcXdwZA==" alt="QR Instagram">
+            <span>📸 Instagram</span>
+        </div>
+    </div>
+</div>
 </div>
 
 <script>
@@ -617,21 +800,13 @@
         ];
 
         const fotoscuola = [
-            { img: 'images/img1.jpg' },
-            { img: 'images/img2.jpg' },
-            { img: 'images/img3.jpg' }, 
-            { img: 'images/img4.jpg' },
-            { img: 'images/img5.jpg' }
+            { img: 'images/img1.jpg', titolo: 'La nostra scuola', desc: 'La cupola del Belluzzi' },
+            { img: 'images/img2.jpg', titolo: 'La nostra scuola', desc: 'La sede Da Vinci' },
+            { img: 'images/img3.jpg', titolo: 'I laboratori', desc: 'Oltre 30 spazi attrezzati per la pratica e l\'innovazione.' },
+            { img: 'images/img4.jpg', titolo: 'Campo esterno', desc: 'Il nostro campetto all\'aperto' }
         ];
 
-        let currentSlide = 0;
-        let progressInterval;
-        let currentSlideScuola = 0;
-        let progressIntervalScuola;
-        
-        // TEMPI INDIPENDENTI
-        const TEMPO_SLIDE = 10000; // Sinistra: 10 secondi
-        const TEMPO_SLIDE_SCUOLA = 6000; // Destra: 6 secondi
+        const TEMPO_SLIDE = 8000;
 
         // ============================================
         // SISTEMA FESTIVITÀ
@@ -658,7 +833,7 @@
             if (mese === 2 && giorno >= 1 && giorno <= 21) return { nome: 'san-valentino', auguri: '❤️ Buon San Valentino! ❤️', classe: 'festa-san-valentino' };
             if (mese === 10 && giorno >= 20 && giorno <= 31) return { nome: 'halloween', auguri: '🎃 Dolcetto o scherzetto? Buon Halloween! 🎃', classe: 'festa-halloween' };
             if (mese === 3 && giorno >= 5 && giorno <= 8) return { nome: 'donna', auguri: '🌸 Festa della Donna · 8 Marzo 🌸', classe: 'festa-donna' };
-            if (mese === 10 && giorno >= 11 && giorno <= 14) return { nome: 'gaudenzio', auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉', classe: 'festa-gaudenzio' };
+            if (mese === 3 && giorno >= 12 && giorno <= 14) return { nome: 'gaudenzio', auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉', classe: 'festa-gaudenzio' };
             if (mese === 5 && giorno >= 30 || (mese === 6 && giorno <= 2)) return { nome: 'repubblica', auguri: '🇮🇹 Festa della Repubblica Italiana! 🇮🇹', classe: 'festa-repubblica' };
             if ((mese === 12 && giorno >= 15) || (mese === 1 && giorno <= 10)) return { nome: 'natale', auguri: '🎄 Buon Natale e Felice Anno Nuovo! 🎄', classe: 'festa-natale' };
             if (mese === 1 && giorno === 27) return { nome: 'memoria', auguri: '🕯️ Giornata della Memoria · Per non dimenticare 🕯️', classe: 'festa-memoria' };
@@ -733,9 +908,10 @@
             const oraCorrente = now.getHours();
             
             let html = '';
-            for (let i = 1; i <= 5; i++) {
-                const targetHour = (oraCorrente + i) % 24;
+            for (let i = 1; i <= 3; i++) {
+                const targetHour = (oraCorrente + (i * 2)) % 24; 
                 let closestIndex = 0; let minDiff = Infinity;
+                
                 for (let j = 0; j < forecastData.list.length; j++) {
                     const forecastDate = new Date(forecastData.list[j].dt * 1000);
                     const forecastHour = forecastDate.getHours();
@@ -787,102 +963,143 @@
             }
         }
 
-        // AGGIORNAMENTO CAROSELLO 1 (SINISTRA)
-        function aggiornaSlide(index) {
-            const container = document.getElementById('slideContainer');
-            const s = indirizzi[index];
-            
-            container.innerHTML = `
-                <div class="indirizzo-image-area">
-                    <img src="${s.img}" alt="${s.nome}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>📷</div>';">
-                </div>
-                <div class="indirizzo-text-area">
-                    <div class="indirizzo-nome">${s.nome}</div>
-                    <div class="indirizzo-desc">${s.desc}</div>
-                </div>
-            `;
+        function costruisciSequenza() {
+            const seq = [];
+            const maxLen = Math.max(indirizzi.length, fotoscuola.length);
+            for (let i = 0; i < maxLen; i++) {
+                if (i < indirizzi.length) seq.push({ tipo: 'indirizzo', dati: indirizzi[i] });
+                if (i < fotoscuola.length) seq.push({ tipo: 'scuola', dati: fotoscuola[i] });
+            }
+            return seq;
+        }
 
-            document.querySelectorAll('#dotsMinimal .dot-minimal').forEach((dot, i) => {
+        let sequenza = [];
+        let currentSlide = 0;
+
+        function aggiornaSlideUnico(index) {
+            const container = document.getElementById('slideContainerUnico');
+            const item = sequenza[index];
+
+            if (item.tipo === 'indirizzo') {
+                const s = item.dati;
+                container.className = 'slide-container tipo-indirizzo';
+                container.innerHTML = `
+                    <div class="indirizzo-image-area">
+                        <img src="${s.img}" alt="${s.nome}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>📷</div>';">
+                    </div>
+                    <div class="indirizzo-text-area">
+                        <div class="indirizzo-nome">${s.nome}</div>
+                        <div class="indirizzo-desc">${s.desc}</div>
+                    </div>
+                `;
+            } else {
+                const s = item.dati;
+                container.className = 'slide-container tipo-scuola';
+                container.innerHTML = `
+                    <div class="indirizzo-text-area">
+                        <div class="indirizzo-nome">${s.titolo || 'La nostra scuola'}</div>
+                        <div class="indirizzo-desc">${s.desc || ''}</div>
+                    </div>
+                    <div class="indirizzo-image-area">
+                        <img src="${s.img}" alt="${s.titolo || 'Foto scuola'}" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>📷</div>';">
+                    </div>
+                `;
+            }
+
+            document.querySelectorAll('#dotsMinimalUnico .dot-minimal').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
-            
-            resetProgressBar();
-        }
-
-        // AGGIORNAMENTO CAROSELLO 2 (DESTRA - CORRETTO)
-        function aggiornaSlideScuola(index) {
-            const container = document.getElementById('slideContainerScuola');
-            const s = fotoscuola[index];
-            
-            container.innerHTML = `
-                <div class="scuola-image-wrapper">
-                    <img src="${s.img}" alt="Foto Scuola" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'>📷</div>';">
-                </div>
-            `;
-
-            document.querySelectorAll('#dotsMinimalScuola .dot-minimal').forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            
-            resetProgressBarScuola();
-        }
-
-        function resetProgressBar() {
-            if (progressInterval) clearInterval(progressInterval);
-            const progressFill = document.getElementById('progressFill');
-            progressFill.style.width = '0%';
-            
-            const startTime = Date.now();
-            progressInterval = setInterval(() => {
-                const elapsed = Date.now() - startTime;
-                const percent = (elapsed / TEMPO_SLIDE) * 100;
-                
-                if (percent <= 100) progressFill.style.width = percent + '%';
-                else clearInterval(progressInterval);
-            }, 50);
-        }
-
-        function resetProgressBarScuola() {
-            if (progressIntervalScuola) clearInterval(progressIntervalScuola);
-            const progressFill = document.getElementById('progressFillScuola');
-            progressFill.style.width = '0%';
-            
-            const startTime = Date.now();
-            progressIntervalScuola = setInterval(() => {
-                const elapsed = Date.now() - startTime;
-                const percent = (elapsed / TEMPO_SLIDE_SCUOLA) * 100;
-                
-                if (percent <= 100) progressFill.style.width = percent + '%';
-                else clearInterval(progressIntervalScuola);
-            }, 50);
         }
 
         function slideSuccessiva() {
-            currentSlide = (currentSlide + 1) % indirizzi.length;
-            aggiornaSlide(currentSlide);
-        }
-
-        function slideSuccessivaScuola() {
-            currentSlideScuola = (currentSlideScuola + 1) % fotoscuola.length;
-            aggiornaSlideScuola(currentSlideScuola);
+            currentSlide = (currentSlide + 1) % sequenza.length;
+            aggiornaSlideUnico(currentSlide);
         }
 
         function creaPalliniMinimal() {
-            const container = document.getElementById('dotsMinimal');
+            const container = document.getElementById('dotsMinimalUnico');
             container.innerHTML = '';
-            indirizzi.forEach((_, idx) => {
+            sequenza.forEach((_, idx) => {
                 const dot = document.createElement('span');
                 dot.className = 'dot-minimal' + (idx === 0 ? ' active' : '');
                 container.appendChild(dot);
             });
+        }
 
-            const containerScuola = document.getElementById('dotsMinimalScuola');
-            containerScuola.innerHTML = '';
-            fotoscuola.forEach((_, idx) => {
-                const dot = document.createElement('span');
-                dot.className = 'dot-minimal' + (idx === 0 ? ' active' : '');
-                containerScuola.appendChild(dot);
-            });
+        async function caricaNotizie() {
+            const rssUrl = 'https://www.ittsrimini.edu.it/tipologia-articolo/notizie/feed/';
+            const container = document.getElementById('notizieList');
+
+            const proxies = [
+                `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`,
+                `https://allorigins.win/get?disableCache=true&url=${encodeURIComponent(rssUrl)}`,
+                `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`
+            ];
+
+            for (let i = 0; i < proxies.length; i++) {
+                try {
+                    const res = await fetch(proxies[i]);
+                    if (!res.ok) continue;
+
+                    let items = [];
+
+                    if (i === 0) {
+                        const data = await res.json();
+                        if (!data.items || data.items.length === 0) continue;
+                        items = data.items.map(item => ({
+                            titolo: item.title,
+                            data: new Date(item.pubDate),
+                            link: item.link
+                        }));
+                    } else {
+                        let xmlText = '';
+                        if (i === 1) {
+                            const json = await res.json();
+                            xmlText = json.contents;
+                        } else {
+                            xmlText = await res.text();
+                        }
+                        const parser = new DOMParser();
+                        const xml = parser.parseFromString(xmlText, 'text/xml');
+                        const entries = xml.querySelectorAll('item');
+                        if (!entries.length) continue;
+                        entries.forEach((entry) => {
+                            const titolo = entry.querySelector('title')?.textContent || '';
+                            const dataTxt = entry.querySelector('pubDate')?.textContent || '';
+                            items.push({ titolo, data: new Date(dataTxt), link: entry.querySelector('link')?.textContent || '#' });
+                        });
+                    }
+
+                    items.sort((a, b) => (b.data?.getTime?.() || 0) - (a.data?.getTime?.() || 0));
+                    items = items.slice(0, 3);
+
+                    if (!items.length) continue;
+
+                    const mesi = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+                    container.innerHTML = items.map(item => {
+                        const d = item.data;
+                        const dataStr = isNaN(d) ? '' : `${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;
+                        const titolo = item.titolo
+                            .replace(/&amp;/g,'&').replace(/&#8211;/g,'–')
+                            .replace(/&#8217;/g,"'").replace(/&#8220;/g,'"').replace(/&#8221;/g,'"');
+                        return `<div class="notizia-item">
+                            <a class="notizia-titolo" href="${item.link}" target="_blank" rel="noopener noreferrer">${titolo}</a>
+                            ${dataStr ? `<div class="notizia-data">📅 ${dataStr}</div>` : ''}
+                        </div>`;
+                    }).join('');
+                    return;
+
+                } catch(e) { continue; }
+            }
+
+            container.innerHTML = [
+                { titolo: 'Iniziativa Referendum', data: '05 Mar 2026' },
+                { titolo: 'Il "Belluzzi-da Vinci" vince la prima sfida de "La Campanella" 2026', data: '18 Feb 2026' },
+                { titolo: 'SADOC INFORMA N. 4 – 2026', data: '26 Feb 2026' }
+            ].map(n => `<div class="notizia-item">
+                <div class="notizia-titolo">${n.titolo}</div>
+                <div class="notizia-data">📅 ${n.data}</div>
+            </div>`).join('');
         }
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -891,15 +1108,16 @@
             
             applicaTemaFestivo();
             caricaMeteoReale();
+            caricaNotizie();
             
+            sequenza = costruisciSequenza();
             creaPalliniMinimal();
-            aggiornaSlide(0);
-            aggiornaSlideScuola(0);
+            aggiornaSlideUnico(0);
             
-            setInterval(slideSuccessiva, TEMPO_SLIDE); // 10s
-            setInterval(slideSuccessivaScuola, TEMPO_SLIDE_SCUOLA); // 6s
+            setInterval(slideSuccessiva, TEMPO_SLIDE);
             setInterval(aggiornaOraData, 1000);
             setInterval(caricaMeteoReale, 900000);
+            setInterval(caricaNotizie, 600000);
             setInterval(aggiornaSaluto, 60000);
             setInterval(applicaTemaFestivo, 3600000);
         });
