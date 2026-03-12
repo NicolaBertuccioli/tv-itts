@@ -37,7 +37,7 @@
 
         /* ============================================
            TEMI FESTIVITÀ
-           =================================                                                                                                                         =========== */
+           ============================================ */
         body.festa-natale { background: #1a3f2a; }
         body.festa-halloween { background: #2a1a1a; }
         body.festa-pasqua { background: #3a2a4a; }
@@ -110,6 +110,10 @@
 
         .dashboard.festa-donna .top-bar { border-bottom-color: #2d8a4e; }
         .dashboard.festa-donna .progress-fill { background: #2d8a4e; }
+        .dashboard.festa-donna .countdown-card {
+            background: rgba(255,255,255,0.9) !important;
+            color: #000 !important;
+        }
         /* ------------------------------------------- */
 
         .dashboard.festa-papa { background: linear-gradient(135deg, #2a4a6a, #3a6a8a); color: #ffdab9; }
@@ -207,7 +211,7 @@
         }
 
         .saluto {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
             color: #c00a1c;
             background: #ffeeee;
@@ -236,69 +240,6 @@
         .dashboard[class*="festa-"] .firma {
             color: inherit;
         }
-
-/* ============================================
-   QR CODE AREA - AFFIANCO AL CAROSELLO
-   ============================================ */
-.carousel-qr-wrapper {
-    display: flex;
-    gap: 0;
-    align-items: center;
-    margin-bottom: 1rem;
-    justify-content: space-between;
-}
-
-.carosello-wrapper {
-    width: 50%;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.qr-sidebar {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    justify-content: center;
-    margin-right: 1rem;
-}
-
-.qr-code {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1.2rem;
-    background: white;
-    padding: 0.9rem 2rem;
-    border-radius: 80px;
-    border: 4px solid #c00a1c;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    width: 375px;
-}
-
-.dashboard[class*="festa-"] .qr-code { 
-    background: white !important; 
-    border-color: #c00a1c; 
-}
-
-.qr-code img { 
-    width: 80px; 
-    height: 80px; 
-    flex-shrink: 0;
-}
-
-.qr-code span { 
-    font-size: 1.5rem; 
-    font-weight: 700; 
-    color: #0a2b44;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-.dashboard[class*="festa-"] .qr-code span { 
-    color: #0a2b44; 
-}
 
         /* ============================================
            WRAPPER METEO + NOTIZIE
@@ -339,7 +280,7 @@
             background: linear-gradient(135deg, #0a2b44 0%, #1a3f5c 100%);
             color: white;
             border-radius: 30px;
-            padding: 1rem 1.4rem;
+            padding: 1.2rem 1.6rem;
             display: flex;
             flex-direction: column;
             box-shadow: 0 15px 30px rgba(0,20,40,0.3);
@@ -360,21 +301,14 @@
             padding-bottom: 0.6rem;
         }
 
-        .notizie-icon { font-size: 1.3rem; }
+        .notizie-icon { font-size: 1.4rem; }
 
         .notizie-title {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             flex: 1;
-        }
-
-        .notizie-link {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.5);
-            text-decoration: none;
-            white-space: nowrap;
         }
 
         .notizie-list {
@@ -388,18 +322,18 @@
         .notizia-item {
             background: rgba(255,255,255,0.08);
             border-radius: 14px;
-            padding: 0.7rem 1rem;
+            padding: 0.9rem 1.2rem;
             border-left: 3px solid #c00a1c;
             display: flex;
             flex-direction: column;
-            gap: 0.2rem;
+            gap: 0.3rem;
             transition: background 0.2s;
         }
 
         .notizia-titolo {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            line-height: 1.3;
+            line-height: 1.35;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             line-clamp: 2;
@@ -410,7 +344,7 @@
         }
 
         .notizia-data {
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             opacity: 0.6;
             font-weight: 400;
         }
@@ -437,8 +371,8 @@
             margin-right: 0.5rem;
         }
         
-        .ora-grande { font-size: 2.8rem; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 2px; line-height: 1; }
-        .data-grande { font-size: 1.3rem; font-weight: 400; opacity: 0.9; margin-top: 0.2rem;}
+        .ora-grande { font-size: 3.8rem; font-weight: 700; font-family: 'Courier New', monospace; letter-spacing: 2px; line-height: 1; }
+        .data-grande { font-size: 1.6rem; font-weight: 400; opacity: 0.9; margin-top: 0.2rem;}
 
         .meteo-riassunto {
             display: flex;
@@ -450,9 +384,9 @@
         }
 
         .icona-temp-grande { display: flex; align-items: center; gap: 0.5rem; }
-        .icona-meteo-grande { font-size: 2.5rem; }
-        .temp-grande { font-size: 2.5rem; font-weight: 700; }
-        .desc-grande { font-size: 1.1rem; text-transform: capitalize; }
+        .icona-meteo-grande { font-size: 3rem; }
+        .temp-grande { font-size: 3.5rem; font-weight: 700; }
+        .desc-grande { font-size: 1.4rem; text-transform: capitalize; }
 
         .meteo-row-2 { display: flex; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; }
 
@@ -467,14 +401,14 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .dettaglio-icona { font-size: 1.4rem; }
+        .dettaglio-icona { font-size: 1.7rem; }
         .dettaglio-testo { display: flex; flex-direction: column; }
-        .dettaglio-label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; }
-        .dettaglio-valore { font-size: 1.2rem; font-weight: 600; }
+        .dettaglio-label { font-size: 0.85rem; text-transform: uppercase; opacity: 0.7; }
+        .dettaglio-valore { font-size: 1.5rem; font-weight: 600; }
 
         /* Previsioni orarie */
-        .previsioni-orarie { padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.2); }
-        .previsioni-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; opacity: 0.9; }
+        .previsioni-orarie { padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.2); }
+        .previsioni-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; opacity: 0.9; }
         .previsioni-container { display: flex; justify-content: space-between; gap: 0.6rem; }
 
         .previsione-card {
@@ -488,24 +422,31 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .previsione-ora { font-size: 0.9rem; font-weight: 600; }
+        .previsione-ora { font-size: 1.3rem; font-weight: 600; }
         .previsione-icona { font-size: 1.3rem; margin: 0.2rem 0; }
         .previsione-temp { font-size: 1.1rem; font-weight: 700; }
-        .previsione-pioggia { font-size: 0.75rem; opacity: 0.8; }
+        .previsione-pioggia { font-size: 1rem; opacity: 0.8; }
 
         /* ============================================
-           CAROSELLO - IMMAGINI MENO SCHIACCIATE
+           QUADRANTI INFERIORI
            ============================================ */
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #0a2b44;
-            margin-bottom: 0.5rem;
+        .bottom-quadrants {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex: 1;
+            min-height: 0;
         }
 
-        .dashboard[class*="festa-"] .section-title { color: inherit; }
+        /* Carosello - primo quadrante */
+        .carousel-quadrant {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
 
-        .slide-container {
+        .carousel-quadrant .slide-container {
             display: flex;
             gap: 2rem;
             align-items: center;
@@ -514,14 +455,14 @@
             padding: 1.5rem;
             border: 2px solid #d0e0f0;
             height: 100%;
-            min-height: 300px;
-            max-height: 350px;
+            min-height: 250px;
+            max-height: 300px;
             transition: background 0.5s ease, border-color 0.5s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .slide-container.tipo-scuola {
+        .carousel-quadrant .slide-container.tipo-scuola {
             padding: 1.5rem;
             background: #0a2b44;
             border-color: #c00a1c;
@@ -529,48 +470,20 @@
             gap: 2rem;
         }
 
-        .slide-container.tipo-scuola .indirizzo-text-area {
+        .carousel-quadrant .slide-container.tipo-scuola .indirizzo-text-area {
             flex: 1;
             min-width: 0;
             color: white;
             text-align: right;
         }
 
-        .slide-container.tipo-scuola .indirizzo-nome,
-        .slide-container.tipo-scuola .indirizzo-desc {
+        .carousel-quadrant .slide-container.tipo-scuola .indirizzo-nome,
+        .carousel-quadrant .slide-container.tipo-scuola .indirizzo-desc {
             color: white;
         }
 
-        .slide-container.tipo-scuola .indirizzo-desc {
-            border-top-color: rgba(255,255,255,0.35);
-        }
-
-        .dashboard[class*="festa-"] .slide-container { 
-            background: rgba(255,255,255,0.15); 
-            border-color: rgba(255,255,255,0.3); 
-        }
-
-        /* Donna: sfondo bianco pieno per i caroselli */
-        .dashboard.festa-donna .slide-container,
-        .dashboard.festa-donna .slide-container.tipo-scuola {
-            background: #fffef5 !important;
-            border-color: rgba(0,0,0,0.08) !important;
-        }
-
-        .dashboard.festa-donna .indirizzo-desc {
-            border-top-color: #2d8a4e !important;
-        }
-
-        .dashboard[class*="festa-"] .slide-container.tipo-scuola {
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.5);
-        }
-
-        /* ============================================
-           STILI CAROSELLO - IMMAGINI MENO SCHIACCIATE
-           ============================================ */
-        .indirizzo-image-area {
-            width: 400px;
+        .carousel-quadrant .indirizzo-image-area {
+            width: 350px;
             height: auto;
             aspect-ratio: 16 / 9;
             align-self: center;
@@ -584,15 +497,15 @@
             flex-shrink: 0;
         }
 
-        .indirizzo-text-area {
+        .carousel-quadrant .indirizzo-text-area {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .indirizzo-nome {
-            font-size: 2.5rem;
+        .carousel-quadrant .indirizzo-nome {
+            font-size: 2rem;
             line-height: 1.1;
             font-weight: 800;
             color: #0a2b44;
@@ -600,38 +513,145 @@
             margin-bottom: 0.5rem;
         }
 
-        .indirizzo-desc {
-            font-size: 1.2rem;
+        .carousel-quadrant .indirizzo-desc {
+            font-size: 1rem;
             color: #2a4c73;
-            border-top: 3px solid #c00a1c;
-            padding-top: 0.8rem;
-        }
-
-        .dashboard[class*="festa-"] .indirizzo-nome,
-        .dashboard[class*="festa-"] .indirizzo-desc { color: inherit; }
-        .dashboard[class*="festa-"] .indirizzo-desc { border-top-color: rgba(255,255,255,0.3); }
-
-        .dashboard[class*="festa-"] .slide-container {
-            gap: 1.5rem;
-            padding: 1.5rem;
-            min-height: 280px;
-            max-height: 320px;
-        }
-
-        .dashboard[class*="festa-"] .indirizzo-image-area {
-            width: 350px;
-            border-width: 3px;
-        }
-
-        .dashboard[class*="festa-"] .indirizzo-nome {
-            font-size: 2.2rem;
-            font-weight: 700;
-        }
-
-        .dashboard[class*="festa-"] .indirizzo-desc {
-            font-size: 1.1rem;
+            border-top: 2px solid #c00a1c;
             padding-top: 0.6rem;
-            border-top-width: 2px;
+        }
+
+        /* Countdown Maturità - secondo quadrante */
+        .countdown-quadrant {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .countdown-card {
+            background: linear-gradient(135deg, #0a2b44 0%, #1a3f5c 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 15px 30px rgba(0,20,40,0.3);
+            height: 100%;
+            min-height: 250px;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
+        .dashboard[class*="festa-"] .countdown-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .countdown-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 0.6rem;
+        }
+
+        .countdown-icon { font-size: 1.4rem; }
+
+        .countdown-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            flex: 1;
+        }
+
+        .countdown-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .countdown-number {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1;
+            background: rgba(255,255,255,0.08);
+            border-radius: 30px;
+            padding: 1rem 2rem;
+            border-left: 5px solid #c00a1c;
+            text-align: center;
+            width: 100%;
+        }
+
+        .countdown-label {
+            font-size: 1.3rem;
+            font-weight: 500;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .countdown-date {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        .dashboard[class*="festa-"] .countdown-number {
+            background: rgba(255,255,255,0.9);
+            color: #000;
+        }
+
+        /* ============================================
+           QR CODE IN BASSO (invariato)
+           ============================================ */
+        .qr-footer-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 0.7rem 0 0.5rem 0;
+            flex-shrink: 0;
+        }
+
+        .qr-code {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1.2rem;
+            background: white;
+            padding: 0.9rem 2rem;
+            border-radius: 80px;
+            border: 4px solid #c00a1c;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            width: 375px;
+        }
+
+        .dashboard[class*="festa-"] .qr-code { 
+            background: white !important; 
+            border-color: #c00a1c; 
+        }
+
+        .qr-code img { 
+            width: 80px; 
+            height: 80px; 
+            flex-shrink: 0;
+        }
+
+        .qr-code span { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: #0a2b44;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .dashboard[class*="festa-"] .qr-code span { 
+            color: #0a2b44; 
         }
 
         /* ============================================
@@ -758,32 +778,45 @@
         </div>
     </div>
 
-    <div class="section-title">📸 I NOSTRI INDIRIZZI E LA SCUOLA</div>
+    <!-- QUADRANTI INFERIORI: CAROSELLO + COUNTDOWN MATURITÀ -->
+    <div class="bottom-quadrants">
+        <!-- Primo quadrante: Carosello -->
+        <div class="carousel-quadrant">
+            <div class="slide-container" id="slideContainerUnico"></div>
+            <div class="progress-bar-container">
+                <div class="progress-info">
+                    <div class="dots-minimal" id="dotsMinimalUnico"></div>
+                </div>
+            </div>
+        </div>
 
-    <!-- NUOVO LAYOUT: CAROSELLO + QR AFFIANCATI -->
-<div class="carousel-qr-wrapper">
-    <!-- Carosello a sinistra (più largo) -->
-    <div class="carosello-wrapper">
-        <div class="slide-container" id="slideContainerUnico"></div>
-        <div class="progress-bar-container">
-            <div class="progress-info">
-                <div class="dots-minimal" id="dotsMinimalUnico"></div>
+        <!-- Secondo quadrante: Countdown Maturità -->
+        <div class="countdown-quadrant">
+            <div class="countdown-card">
+                <div class="countdown-header">
+                    <span class="countdown-icon">🎓</span>
+                    <span class="countdown-title">Maturità 2026</span>
+                </div>
+                <div class="countdown-content" id="countdownContent">
+                    <div class="countdown-number" id="countdownNumber">--</div>
+                    <div class="countdown-label">giorni</div>
+                    <div class="countdown-date">18 Giugno 2026</div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- QR Code a destra (sidebar) - ICONE INGRANDITE -->
-    <div class="qr-sidebar">
+    <!-- QR CODE IN BASSO (invariato) -->
+    <div class="qr-footer-bar">
         <div class="qr-code">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.ittsrimini.edu.it/" alt="QR sito web">
             <span>📱 Sito della scuola</span>
         </div>
-        <div class="qr-code">
+        <div class="qr-code qr-instagram">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.instagram.com/itts.belluzzidavincirimini?utm_source=qr&igsh=MWRrZ2ZlY3RlcXdwZA==" alt="QR Instagram">
             <span>📸 Instagram</span>
         </div>
     </div>
-</div>
 </div>
 
 <script>
@@ -833,7 +866,7 @@
             if (mese === 2 && giorno >= 1 && giorno <= 21) return { nome: 'san-valentino', auguri: '❤️ Buon San Valentino! ❤️', classe: 'festa-san-valentino' };
             if (mese === 10 && giorno >= 20 && giorno <= 31) return { nome: 'halloween', auguri: '🎃 Dolcetto o scherzetto? Buon Halloween! 🎃', classe: 'festa-halloween' };
             if (mese === 3 && giorno >= 5 && giorno <= 8) return { nome: 'donna', auguri: '🌸 Festa della Donna · 8 Marzo 🌸', classe: 'festa-donna' };
-            if (mese === 3 && giorno >= 12 && giorno <= 14) return { nome: 'gaudenzio', auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉', classe: 'festa-gaudenzio' };
+            if (mese === 10 && giorno >= 12 && giorno <= 14) return { nome: 'gaudenzio', auguri: '🎉 Buon San Gaudenzio, patrono di Rimini! 🎉', classe: 'festa-gaudenzio' };
             if (mese === 5 && giorno >= 30 || (mese === 6 && giorno <= 2)) return { nome: 'repubblica', auguri: '🇮🇹 Festa della Repubblica Italiana! 🇮🇹', classe: 'festa-repubblica' };
             if ((mese === 12 && giorno >= 15) || (mese === 1 && giorno <= 10)) return { nome: 'natale', auguri: '🎄 Buon Natale e Felice Anno Nuovo! 🎄', classe: 'festa-natale' };
             if (mese === 1 && giorno === 27) return { nome: 'memoria', auguri: '🕯️ Giornata della Memoria · Per non dimenticare 🕯️', classe: 'festa-memoria' };
@@ -1027,79 +1060,98 @@
         }
 
         async function caricaNotizie() {
-    const rssUrl = 'https://www.ittsrimini.edu.it/tipologia-articolo/notizie/feed/';
-    const container = document.getElementById('notizieList');
+            const rssUrl = 'https://www.ittsrimini.edu.it/tipologia-articolo/notizie/feed/';
+            const container = document.getElementById('notizieList');
 
-    const proxies = [
-        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`,
-        `https://allorigins.win/get?disableCache=true&url=${encodeURIComponent(rssUrl)}`,
-        `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`
-    ];
+            const proxies = [
+                `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`,
+                `https://allorigins.win/get?disableCache=true&url=${encodeURIComponent(rssUrl)}`,
+                `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`
+            ];
 
-    for (let i = 0; i < proxies.length; i++) {
-        try {
-            const res = await fetch(proxies[i]);
-            if (!res.ok) continue;
+            for (let i = 0; i < proxies.length; i++) {
+                try {
+                    const res = await fetch(proxies[i]);
+                    if (!res.ok) continue;
 
-            let items = [];
+                    let items = [];
 
-            if (i === 0) {
-                const data = await res.json();
-                if (!data.items || data.items.length === 0) continue;
-                items = data.items.map(item => ({
-                    titolo: item.title,
-                    data: new Date(item.pubDate)
-                }));
-            } else {
-                let xmlText = '';
-                if (i === 1) {
-                    const json = await res.json();
-                    xmlText = json.contents;
-                } else {
-                    xmlText = await res.text();
-                }
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(xmlText, 'text/xml');
-                const entries = xml.querySelectorAll('item');
-                if (!entries.length) continue;
-                entries.forEach((entry) => {
-                    const titolo = entry.querySelector('title')?.textContent || '';
-                    const dataTxt = entry.querySelector('pubDate')?.textContent || '';
-                    items.push({ titolo, data: new Date(dataTxt) });
-                });
+                    if (i === 0) {
+                        const data = await res.json();
+                        if (!data.items || data.items.length === 0) continue;
+                        items = data.items.map(item => ({
+                            titolo: item.title,
+                            data: new Date(item.pubDate)
+                        }));
+                    } else {
+                        let xmlText = '';
+                        if (i === 1) {
+                            const json = await res.json();
+                            xmlText = json.contents;
+                        } else {
+                            xmlText = await res.text();
+                        }
+                        const parser = new DOMParser();
+                        const xml = parser.parseFromString(xmlText, 'text/xml');
+                        const entries = xml.querySelectorAll('item');
+                        if (!entries.length) continue;
+                        entries.forEach((entry) => {
+                            const titolo = entry.querySelector('title')?.textContent || '';
+                            const dataTxt = entry.querySelector('pubDate')?.textContent || '';
+                            items.push({ titolo, data: new Date(dataTxt) });
+                        });
+                    }
+
+                    items.sort((a, b) => (b.data?.getTime?.() || 0) - (a.data?.getTime?.() || 0));
+                    items = items.slice(0, 3);
+
+                    if (!items.length) continue;
+
+                    const mesi = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+                    container.innerHTML = items.map(item => {
+                        const d = item.data;
+                        const dataStr = isNaN(d) ? '' : `${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;
+                        const titolo = item.titolo
+                            .replace(/&amp;/g,'&').replace(/&#8211;/g,'–')
+                            .replace(/&#8217;/g,"'").replace(/&#8220;/g,'"').replace(/&#8221;/g,'"');
+                        return `<div class="notizia-item">
+                            <div class="notizia-titolo">${titolo}</div>
+                            ${dataStr ? `<div class="notizia-data">📅 ${dataStr}</div>` : ''}
+                        </div>`;
+                    }).join('');
+                    return;
+
+                } catch(e) { continue; }
             }
 
-            items.sort((a, b) => (b.data?.getTime?.() || 0) - (a.data?.getTime?.() || 0));
-            items = items.slice(0, 3);
+            container.innerHTML = [
+                { titolo: 'Iniziativa Referendum', data: '05 Mar 2026' },
+                { titolo: 'Il "Belluzzi-da Vinci" vince la prima sfida de "La Campanella" 2026', data: '18 Feb 2026' },
+                { titolo: 'SADOC INFORMA N. 4 – 2026', data: '26 Feb 2026' }
+            ].map(n => `<div class="notizia-item">
+                <div class="notizia-titolo">${n.titolo}</div>
+                <div class="notizia-data">📅 ${n.data}</div>
+            </div>`).join('');
+        }
 
-            if (!items.length) continue;
-
-            const mesi = ['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
-            container.innerHTML = items.map(item => {
-                const d = item.data;
-                const dataStr = isNaN(d) ? '' : `${d.getDate()} ${mesi[d.getMonth()]} ${d.getFullYear()}`;
-                const titolo = item.titolo
-                    .replace(/&amp;/g,'&').replace(/&#8211;/g,'–')
-                    .replace(/&#8217;/g,"'").replace(/&#8220;/g,'"').replace(/&#8221;/g,'"');
-                return `<div class="notizia-item">
-                    <div class="notizia-titolo">${titolo}</div>
-                    ${dataStr ? `<div class="notizia-data">📅 ${dataStr}</div>` : ''}
-                </div>`;
-            }).join('');
-            return;
-
-        } catch(e) { continue; }
-    }
-
-    container.innerHTML = [
-        { titolo: 'Iniziativa Referendum', data: '05 Mar 2026' },
-        { titolo: 'Il "Belluzzi-da Vinci" vince la prima sfida de "La Campanella" 2026', data: '18 Feb 2026' },
-        { titolo: 'SADOC INFORMA N. 4 – 2026', data: '26 Feb 2026' }
-    ].map(n => `<div class="notizia-item">
-        <div class="notizia-titolo">${n.titolo}</div>
-        <div class="notizia-data">📅 ${n.data}</div>
-    </div>`).join('');
-}
+        // ============================================
+        // COUNTDOWN MATURITÀ
+        // ============================================
+        function aggiornaCountdown() {
+            const oggi = new Date();
+            const maturita = new Date(2026, 5, 18); // 18 Giugno 2026 (mese 5 = Giugno)
+            
+            // Calcola la differenza in millisecondi
+            const diff = maturita - oggi;
+            
+            // Converti in giorni
+            const giorniMancanti = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            
+            const countdownElement = document.getElementById('countdownNumber');
+            if (countdownElement) {
+                countdownElement.textContent = giorniMancanti > 0 ? giorniMancanti : 0;
+            }
+        }
 
         window.addEventListener('DOMContentLoaded', () => {
             aggiornaSaluto();
@@ -1108,6 +1160,7 @@
             applicaTemaFestivo();
             caricaMeteoReale();
             caricaNotizie();
+            aggiornaCountdown();
             
             sequenza = costruisciSequenza();
             creaPalliniMinimal();
@@ -1117,6 +1170,7 @@
             setInterval(aggiornaOraData, 1000);
             setInterval(caricaMeteoReale, 900000);
             setInterval(caricaNotizie, 600000);
+            setInterval(aggiornaCountdown, 3600000); // Aggiorna countdown ogni ora
             setInterval(aggiornaSaluto, 60000);
             setInterval(applicaTemaFestivo, 3600000);
         });
